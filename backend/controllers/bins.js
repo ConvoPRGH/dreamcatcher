@@ -1,8 +1,13 @@
 const binsRouter = require('express').Router();
-const psql = require('../modules/psql_config.js');
+const { getAllBins, getAllRequests, getOneBin } = require('../modules/psql_bins.js');
 
-binsRouter.get('/', async (req, res) => {
-
+binsRouter.get('/bins', async (req, res) => {
+  try {
+    const res = await getAllBins();
+    res.status(200).json();
+  } catch(e) {
+    console.log('Error returning SQL', e.message);
+  }
 });
 
 // notesRouter.get('/', (request, response) => {

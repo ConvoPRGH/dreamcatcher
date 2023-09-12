@@ -1,4 +1,4 @@
-const config = require('./utils/config');
+const config = require('../utils/config');
 const Pool = require('pg').Pool;
 
 const pool = new Pool({

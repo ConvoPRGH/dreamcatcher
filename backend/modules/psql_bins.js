@@ -3,8 +3,9 @@ const psql = require('./psql_config');
 const getAllBins = async () => {
   const text = `SELECT b.*, count(r.id) AS requests 
                 FROM bins b
-                JOIN requests r ON b.id = r.bin_id
+                LEFT JOIN requests r ON b.id = r.bin_id
                 GROUP BY b.id`;
+                
   try {
     const response = await psql.query(text);
     return response;

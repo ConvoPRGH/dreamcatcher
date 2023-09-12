@@ -3,35 +3,30 @@ const cors = require('cors');
 const config = require('./utils/config');
 const middleware = require('./utils/middleware');
 const mongoose = require('mongoose');
+const binsRouter = require('./controllers/bins.js')
+
 // TODO
-// const binssRouter = require('./controllers/bins.js')
 // const requestsRouter = require('./controllers/requests.js')
 
 const app = express();
 app.use(cors());
 app.use(express.json())
 app.use(middleware.requestLogger)
-app.use(middleware.unknownEndpoint)
-app.use(middleware.errorHandler)
+app.use('/api/bins/', binsRouter)
+
 
 console.log(`connecting to ${config.MONGODB_URI}`);
-
 (async () => {
   try {
     const response = await mongoose.connect(config.MONGODB_URI);
-    console.log('connected to mongoDB', response);
+    console.log('connected to mongoDB');
   } catch (e) {
-    console.log('error connecting to mongoDB', e.message);
+    console.log('error connecting to mongoDB');
   }
 })();
 
-// console.log(`connecting to ${config.SQL_DB}`)
-
 // app.use(express.static(''))
 
-
-// app.use('/api/', router)
-
-
-
+app.use(middleware.unknownEndpoint)
+app.use(middleware.errorHandler)
 module.exports = app;

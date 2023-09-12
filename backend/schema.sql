@@ -15,4 +15,5 @@ CREATE TABLE requests (
 );
 
 
-
+INSERT INTO bins (name, created_at, bin_path)
+VALUES ('test_bin', now(), '12345');

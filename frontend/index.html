@@ -2,8 +2,55 @@
 <html>
   <head>
     <title>Dreamcatcher</title>
+    <!-- potential handlebars template 
+    {{#each bin}}
+    <article class="catcher">
+      <div class="catcher-details">
+        <span class="catcher-data>{{name}}</span>
+         other spans, or use partial for multiple spans
+      </div>
+    </article>
+    {{/each}}
+    -->
   </head>
   <body>
-    <h1>Requests</h1>
+    <div>
+      <aside id="sidebar">Sidebar content goes here</aside>
+      <main>
+        <h1>Dashboard</h1>
+        <button type="button">New Catcher</button>
+        <section id="catcher-container">
+          <header class="catcher-header">
+            <h1>Name, other content</h1> 
+            <!-- this probably also includes spans for each type of content in the catcheres below -->
+          </header>
+          
+          <!-- exclude all spans other than catcher name until stretch goals -->
+          <article class="catcher"> <!-- This is templated from handlebars -->
+            <div class="catcher-details">
+              <span class="catcher-name">Catcher Name</span>
+              <span class="catcher-requests">#Requests</span>
+              <span class="catcher-last-request">Time Last Request</span>
+              <span class="catcher-created at">Time Created At</span>
+              <span class="catcher-options">Options Button</span>
+              <span class="catcher-details">Details Button</span>
+            </div> 
+          </article>
+
+          <article class="catcher"> <!-- This is templated from handlebars -->
+            <div class="catcher-details">
+              <span class="catcher-name">Catcher Name</span>
+              <span class="catcher-requests">#Requests</span>
+              <span class="catcher-last-request">Time Last Request</span>
+              <span class="catcher-created at">Time Created At</span>
+              <span class="catcher-options">Options Button</span>
+              <span class="catcher-details">Details Button</span>
+            </div> 
+          </article>
+        </section>
+      </main>
+    </div>
+    <!-- the fact that each span has a different class might not be necessary, they could potentially all share a single class such as "catcher-data" -->
   </body>
 </html>
+

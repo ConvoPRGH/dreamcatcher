@@ -14,43 +14,42 @@
     -->
   </head>
   <body>
-    <div>
-      <aside id="sidebar">Sidebar content goes here</aside>
+      <aside id="sidebar">Sidebar content goes here
+        <p>logo</p>
+        <p>about us</p>
+        <p>dashboard (?)</p>
+      </aside>
       <main>
-        <h1>Dashboard</h1>
-        <button type="button">New Catcher</button>
-        <section id="catcher-container">
-          <header class="catcher-header">
-            <h1>Name, other content</h1> 
-            <!-- this probably also includes spans for each type of content in the catcheres below -->
-          </header>
-          
+        <button type="button">Create Catcher</button>
+        <section id="bin-list">
           <!-- exclude all spans other than catcher name until stretch goals -->
-          <div class="catcher"> <!-- This is templated from handlebars -->
-            <div class="catcher-details">
-              <span class="catcher-name">Catcher Name</span>
-              <span class="catcher-requests">#Requests</span>
-              <span class="catcher-last-request">Time Last Request</span>
-              <span class="catcher-created at">Time Created At</span>
-              <span class="catcher-options">Options Button</span>
-              <span class="catcher-details">Details Button</span>
+          <div class="bin"> <!-- This is templated from handlebars -->
+            <span class="bin-name">Catcher Name</span>
+            <div class="bin-details">
+              <span class="bin-url">Catcher URL</span>
+              <span class="bin-created-at">Time Created At</span>
             </div> 
           </div>
 
-          <div class="catcher"> <!-- This is templated from handlebars -->
-            <div class="catcher-details">
-              <span class="catcher-name">Catcher Name</span>
-              <span class="catcher-requests">#Requests</span>
-              <span class="catcher-last-request">Time Last Request</span>
-              <span class="catcher-created at">Time Created At</span>
-              <span class="catcher-options">Options Button</span>
-              <span class="catcher-details">Details Button</span>
+          <div class="bin"> <!-- This is templateed from handlebars -->
+            <span class="bin-name">Catcher Name</span>
+            <div class="bin-details">
+              <span class="bin-url">Catcher URL</span>
+              <span class="bin-created-at">Time Created At</span>
             </div> 
           </div>
         </section>
       </main>
-    </div>
     <!-- the fact that each span has a different class might not be necessary, they could potentially all share a single class such as "catcher-data" -->
+    <div id="create-modal">
+      <form>
+        <h2> Create New Catcher</h2>
+        <label for="name">name:</label>
+        <input type="text" name="name">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <script src="./src/index.js"></script>
   </body>
 </html>
 

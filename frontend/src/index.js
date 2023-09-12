@@ -1,11 +1,15 @@
-const Bin = require('./classes/Bin');
-const Request = require('./classes/Request');
+// const Bin = require('./classes/Bin');
+// const Request = require('./classes/Request');
 
-const Seed = require('./utils/Seed');
+// const Seed = require('./utils/Seed');
 
-const seed = new Seed();
+// const seed = new Seed();
 
-console.log(seed.getBins()); 
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('index.js loaded');
+});
+
+// console.log(seed.getBins());
 // Bin {
 //   id: 1,
 //   name: 'My first Bin',
@@ -13,7 +17,7 @@ console.log(seed.getBins());
 //   uuid: 'abcd1234'
 // }
 
-console.log(seed.getBins());
+// console.log(seed.getBins());
 // [
 //   Bin {
 //     id: 1,
@@ -29,7 +33,7 @@ console.log(seed.getBins());
 //   }
 // ]
 
-console.log(seed.getOneRequest());
+// console.log(seed.getOneRequest());
 // Request {
 //   id: 1,
 //   mongoId: 10,
@@ -39,7 +43,7 @@ console.log(seed.getOneRequest());
 //   payload: 'alksdjfl;aksdf'
 // }
 
-console.log(seed.getRequests());
+// console.log(seed.getRequests());
 // [
 //   Request {
 //     id: 1,

@@ -10,10 +10,15 @@ const path = require('path');
 // const requestsRouter = require('./controllers/requests.js')
 
 const app = express();
+app.use(express.static(path.join(__dirname, '../frontend/public'), { "extensions": ["js"] }));
+
+
+console.log(path.join(__dirname, '../frontend/src'));
 app.use(cors());
 app.use(express.json())
 app.use(middleware.requestLogger)
 app.use('/api/bins/', binsRouter)
+
 
 console.log(`connecting to ${config.MONGODB_URI}`);
 (async () => {
@@ -25,10 +30,10 @@ console.log(`connecting to ${config.MONGODB_URI}`);
   }
 })();
 
-// app.use(express.static(''))
+
 
 app.get('/', (req, res) => {
-  const filePath = path.join(__dirname, '..', 'frontend', 'index.html');
+  const filePath = path.join(__dirname, '../frontend/public/index.html');
   res.sendFile(filePath)
 });
 

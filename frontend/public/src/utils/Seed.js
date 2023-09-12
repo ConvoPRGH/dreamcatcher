@@ -1,7 +1,7 @@
-const Bin = require('../classes/Bin');
-const Request = require('../classes/Request');
+import Bin from '../classes/Bin';
+import Request from '../classes/Request';
 
-class Seed {
+export default class Seed {
   constructor() {
     this.binOne = new Bin({
       id: 1,
@@ -61,5 +61,3 @@ class Seed {
     return [this.requestOne, this.requestTwo, this.requestThree]
   }
 }
-
-module.exports = Seed;

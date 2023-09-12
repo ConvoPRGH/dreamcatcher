@@ -13,6 +13,3 @@ CREATE TABLE requests (
   http_method varchar(20) NOT NULL,
   http_path text NOT NULL
 );
-
-
-

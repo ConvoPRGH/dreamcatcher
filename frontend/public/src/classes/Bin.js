@@ -1,4 +1,4 @@
-class Bin {
+export default class Bin {
   constructor(binObject) {
     this.id = binObject.id;
     this.name = binObject.name;
@@ -6,5 +6,3 @@ class Bin {
     this.uuid = binObject.uuid;
   }
 }
-
-module.exports = Bin;

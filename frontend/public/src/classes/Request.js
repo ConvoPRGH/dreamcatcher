@@ -1,4 +1,4 @@
-class Request {
+export default class Request {
   constructor(requestObject) {
     this.id = requestObject.id;
     this.mongoId = requestObject.mongoId;
@@ -8,5 +8,3 @@ class Request {
     this.payload = requestObject.payload;
   }
 }
-
-module.exports = Request;

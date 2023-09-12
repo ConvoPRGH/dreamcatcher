@@ -1,12 +1,16 @@
-// const Bin = require('./classes/Bin');
-// const Request = require('./classes/Request');
+import Bin from '../src/classes/Bin';
+import Request from '../src/classes/Request';
 
-// const Seed = require('./utils/Seed');
+import Seed from '../src/utils/Seed';
 
-// const seed = new Seed();
+const seed = new Seed();
 
 document.addEventListener('DOMContentLoaded', function() {
   console.log('index.js loaded');
+  console.log(seed.getOneBin());
+  console.log(seed.getBins());
+  console.log(seed.getOneRequest());
+  console.log(seed.getRequests());
 });
 
 // console.log(seed.getBins());

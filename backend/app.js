@@ -4,6 +4,7 @@ const config = require('./utils/config');
 const middleware = require('./utils/middleware');
 const mongoose = require('mongoose');
 const binsRouter = require('./controllers/bins.js')
+const path = require('path');
 
 // TODO
 // const requestsRouter = require('./controllers/requests.js')
@@ -27,7 +28,8 @@ console.log(`connecting to ${config.MONGODB_URI}`);
 // app.use(express.static(''))
 
 app.get('/', (req, res) => {
-  res.send('Hello!');
+  const filePath = path.join(__dirname, '..', 'frontend', 'index.html');
+  res.sendFile(filePath)
 });
 
 app.post('/bins/:bin_path', (req, res) => {

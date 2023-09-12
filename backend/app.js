@@ -12,13 +12,11 @@ const path = require('path');
 const app = express();
 app.use(express.static(path.join(__dirname, '../frontend/public'), { "extensions": ["js"] }));
 
-
 console.log(path.join(__dirname, '../frontend/src'));
 app.use(cors());
 app.use(express.json())
 app.use(middleware.requestLogger)
 app.use('/api/bins/', binsRouter)
-
 
 console.log(`connecting to ${config.MONGODB_URI}`);
 (async () => {
@@ -30,20 +28,19 @@ console.log(`connecting to ${config.MONGODB_URI}`);
   }
 })();
 
-
-
 app.get('/', (req, res) => {
   const filePath = path.join(__dirname, '../frontend/public/index.html');
   res.sendFile(filePath)
 });
 
-app.post('/bins/:bin_path', (req, res) => {
+// Accepts a request of ANY METHOD to process
+app.all('/bins/:bin_path', (req, res) => {
   const binPath = req.params.bin_path;
   console.log(`Got a request to ${binPath}`);
-  console.log(req.method);
+  console.log(`Method: ${req.method}`);
   console.log(req.path);
   console.log(req.body);
-  res.status(201).send('POST request successful')
+  res.status(200).send(`Thanks for the ${req.method} request`)
 })
 
 

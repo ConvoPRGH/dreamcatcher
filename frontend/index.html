@@ -4,12 +4,12 @@
     <title>Dreamcatcher</title>
     <!-- potential handlebars template 
     {{#each bin}}
-    <article class="catcher">
+    <div class="catcher">
       <div class="catcher-details">
         <span class="catcher-data>{{name}}</span>
          other spans, or use partial for multiple spans
       </div>
-    </article>
+    </div> 
     {{/each}}
     -->
   </head>
@@ -26,7 +26,7 @@
           </header>
           
           <!-- exclude all spans other than catcher name until stretch goals -->
-          <article class="catcher"> <!-- This is templated from handlebars -->
+          <div class="catcher"> <!-- This is templated from handlebars -->
             <div class="catcher-details">
               <span class="catcher-name">Catcher Name</span>
               <span class="catcher-requests">#Requests</span>
@@ -35,9 +35,9 @@
               <span class="catcher-options">Options Button</span>
               <span class="catcher-details">Details Button</span>
             </div> 
-          </article>
+          </div>
 
-          <article class="catcher"> <!-- This is templated from handlebars -->
+          <div class="catcher"> <!-- This is templated from handlebars -->
             <div class="catcher-details">
               <span class="catcher-name">Catcher Name</span>
               <span class="catcher-requests">#Requests</span>
@@ -46,7 +46,7 @@
               <span class="catcher-options">Options Button</span>
               <span class="catcher-details">Details Button</span>
             </div> 
-          </article>
+          </div>
         </section>
       </main>
     </div>

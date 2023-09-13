@@ -1,0 +1,69 @@
+\q
+CREATE DATABASE test
+\c test
+CREATE DATABASE test;
+\d
+\l
+\q
+createdb test
+\c test
+\l
+\q
+\d
+CREATE TABLE names (
+id serial UNIQUE not NULL,
+name char(25)
+);
+\d
+\d names
+INSERT INTO names VALUES ('Tyler'), ('Stephen'), ('Jay')
+;
+ALTER TABLE names
+ALTER COLUMN name varchar(25);
+ALTER TABLE names
+ALTER COLUMN name TYPE varchar(25);
+INSERT INTO names VALUES ('Tyler'), ('Stephen'), ('Jay')
+;
+\d name
+\d names
+INSERT INTO names (name) VALUES ('Tyler'), ('Stephen'), ('Jay')
+;
+SELECT * FROM names;
+\q
+ALTER USER petfrog WITH PASSWORD 'ribbit';
+\q
+\d
+\q
+CREATE TABLE notes (
+id serial UNIQUE NOT NULL,
+name varchar(20),
+note varchar(255)
+);
+SELECT * FROM NOTES
+;
+\q
+SELECT * FROM notes
+;
+SELECT * FROM notes;
+SELECT * FROM notes;
+SELECT * FROM notes;
+\q
+\du
+\q
+\q
+get * from bins;
+select * from bins;
+GRANT ALL PRIVILEGS ON DATABASE dreamcatcher TO me;
+GRANT ALL PRIVILEGES  ON DATABASE dreamcatcher TO me;
+\q
+\u
+\du
+ALTER USER me WITH SUPERUSER;
+\du
+\d
+\q
+\d
+\c dreamcatcher
+\d
+\ds bins
+\s bins

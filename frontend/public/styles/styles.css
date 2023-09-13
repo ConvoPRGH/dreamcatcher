@@ -1,0 +1,46 @@
+#modal-layer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, .3);
+}
+
+#modal {
+  position: absolute;
+  left: 50%;
+  z-index: 3;
+  width: 660px;
+  padding: 125px 70px 90px 85px;
+  margin: 0 0 0 -415px;
+  text-align: left;
+  background: #ffffff;
+  -webkit-transition: visibility 0.3s, opacity 0.3s;
+    -moz-transition: visibility 0.3s, opacity 0.3s;
+      transition: visibility 0.3s, opacity 0.3s;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+#modal a.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  text-align: left;
+  text-indent: -8685px;
+  overflow: hidden;
+  background: transparent url("../images/icon_close.png") 0 0 no-repeat;
+}

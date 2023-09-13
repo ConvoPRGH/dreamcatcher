@@ -5,35 +5,53 @@ import DBmanager from '../src/classes/DBmanager';
 import Seed from '../src/utils/Seed';
 
 const seed = new Seed();
-const DB = new DBmanager;
+const DB = new DBmanager();
 
 document.addEventListener('DOMContentLoaded', async() => {
-  // load the templates
-  // render the main page
-  try { 
-    const manager = new TemplateManager;
+  try {
+    const manager = new TemplateManager();
     const list = document.querySelector('#bin-list');
     const listData = await DB.fetchAllBins();
     list.innerHTML = manager.templates.all_bins({bin: listData});
-  } catch (e) {
-    console.log(e.messsage);
+  } catch (error) {
+    console.log(error.messsage);
   }
   // console.log('index.js loaded');
   // console.log(seed.getOneBin());
   // console.log(seed.getBins());
   // console.log(seed.getOneRequest());
   // console.log(seed.getRequests());
-  let form = document.querySelector("#new-catcher");
-  form.addEventListener('submit', handleNewBinSubmit);
-
+  document.querySelector("#new-catcher").addEventListener('submit', handleNewBinSubmit);
+  document.querySelector('#create-catcher-btn').addEventListener("click", showModal);
+  document.querySelector('#modal-layer').addEventListener('click', hideModal);
+  document.querySelector('#modal a.close').addEventListener('click', hideModal);
 });
 
-const handleNewBinSubmit = async(e) => {
-  e.preventDefault();
-  
+const showModal = (event) => {
+  // not DRY
+  event.preventDefault();
+  document.querySelector('#modal-layer').classList.replace('hide', 'show');
+  document.querySelector('#modal').classList.replace('hide', 'show');
+};
+
+const hideModal = (event) => {
+  // not DRY
+  event.preventDefault();
+  document.querySelector('#modal-layer').classList.replace('show', 'hide');
+  document.querySelector('#modal').classList.replace('show', 'hide');
+};
+
+const handleNewBinSubmit = async(event) => {
+  event.preventDefault();
   let binName = document.querySelector("#name").value;
-  const data = await DB.createNewBin(binName);
-}
+
+  if (binName !== "") {
+    await DB.createNewBin(binName);
+    location.reload();
+  } else {
+    alert('Name is required.');
+  }
+};
 
 
 // console.log(seed.getBins());

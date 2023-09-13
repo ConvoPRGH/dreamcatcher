@@ -1,5 +1,6 @@
 const psql = require('./psql_config');
 const {v4 : uuidv4} = require('uuid')
+const Payload = require('./payload.js');
 
 const getAllBins = async () => {
   const text = `SELECT b.*, count(r.id) AS requests 
@@ -49,9 +50,19 @@ const createNewBin = async (name) => {
   }
 }
 
+const getAllPayloads = async (mongoIds) => {
+  try {
+    const payloads = Payload.find({ request_id: { $in: mongoIds }});
+    return payloads;
+  } catch(e) {
+    console.log("Error retrieving payloads from Mongo", e.message);
+  }
+}
+
 module.exports = {
   getAllBins,
   getOneBin,
   getAllRequests,
-  createNewBin
+  createNewBin,
+  getAllPayloads
 };

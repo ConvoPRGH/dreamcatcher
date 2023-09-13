@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async() => {
     const list = document.querySelector('#request-list');
     const binData = await DB.fetchOneBin();
     const requestData = await DB.fetchAllRequests();
-    list.innerHTML = manager.templates.({request: requestData});
+    list.innerHTML = manager.templates.all_requests({request: requestData});
   } catch (error) {
     console.log(error.messsage);
   }

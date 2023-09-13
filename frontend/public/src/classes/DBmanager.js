@@ -2,9 +2,10 @@ export default class DBmanager {
 
   async fetchAllBins() {
     try {
-      const response = await fetch('http://localhost:3000/api/bins');
-      const data = await response.json();
-      return data;
+      const response = await fetch('http://localhost:3000/api/bins')
+      let data = await response.json()
+      data.forEach(entry => entry.created_at = this.#convertPSQLTimestamp(entry.created_at));
+      return data
     } catch(e) {
       console.log(e.message);
     }
@@ -22,5 +23,11 @@ export default class DBmanager {
     } catch(e) {
       console.log(e.message);
     }
+  }
+
+  #convertPSQLTimestamp(timestamp) {
+    let [date, time] = timestamp.split('T');
+    time = time.slice(0, 8);
+    return date + ' ' + time;
   }
 }

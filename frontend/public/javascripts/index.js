@@ -18,8 +18,6 @@ document.addEventListener('DOMContentLoaded', async() => {
   } catch (e) {
     console.log(e.messsage);
   }
-  
-
   // console.log('index.js loaded');
   // console.log(seed.getOneBin());
   // console.log(seed.getBins());
@@ -27,6 +25,7 @@ document.addEventListener('DOMContentLoaded', async() => {
   // console.log(seed.getRequests());
   let form = document.querySelector("#new-catcher");
   form.addEventListener('submit', handleNewBinSubmit);
+
 });
 
 const handleNewBinSubmit = async(e) => {
@@ -35,7 +34,6 @@ const handleNewBinSubmit = async(e) => {
   let binName = document.querySelector("#name").value;
   const data = await DB.createnewBin(binName);
 }
-
 
 
 // console.log(seed.getBins());

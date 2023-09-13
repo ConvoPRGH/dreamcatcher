@@ -64,9 +64,8 @@
       </div>
     </div>
     
-    
     <script type="module" src="./javascripts/index.js"></script>
-    <script type="text/x-handlebars" id="all_bins" data-type="partial">
+    <script type="text/x-handlebars" id="all_bins">
       <dl>
         {{#each bin}}
         <div class="catcher" data-bin_path="{{this.bin_path}}">
@@ -77,6 +76,7 @@
           </div>
         </div> 
         {{/each}}
+      </dl>
      </script>
   </body>
 </html>

@@ -42,7 +42,6 @@ main {
   border: 1px solid black;
   padding: 40px;
   grid-area: main;
-  background-color: rgb(65, 2, 94);
   color: white;
 }
 

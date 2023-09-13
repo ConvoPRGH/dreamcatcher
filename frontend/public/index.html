@@ -70,9 +70,14 @@
         {{#each bin}}
         <div class="catcher" data-bin_path="{{this.bin_path}}">
           <div class="catcher-details flex-row">
-            <span class="catcher-data">{{this.name}}</span>
-            <span class="catcher-data">{{this.created_at}}</span>
-            <span class="catcher-data">{{this.bin_path}}</span>
+            <span class="bin-info">
+              <div class="catcher-name">{{this.name}}</div>
+              <div class="catcher-path">{{this.bin_path}}</div>
+            </span>
+            
+            <span class="catcher-data">{{this.last_accessed}} day(s) ago</span>
+            
+            <span class="delete-button">DELETE</span>
           </div>
         </div> 
         {{/each}}

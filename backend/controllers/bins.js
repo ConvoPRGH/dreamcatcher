@@ -10,6 +10,15 @@ binsRouter.get('/', async (req, res) => {
   }
 });
 
+binsRouter.get('/:bin_path', async (req, res) => {
+  try {
+    const data = await getOneBin();
+    res.status(200).json(data.rows);
+  } catch(e) {
+    console.log('Error returning SQL', e.message)
+  }
+})
+
 binsRouter.post('/', async (req, res) => {
   const { name } = req.body;
   console.log(req)
@@ -21,6 +30,8 @@ binsRouter.post('/', async (req, res) => {
     console.log('Error creating new bin', e.message)
   }
 })
+
+
 
 // notesRouter.get('/', (request, response) => {
 //   Note.find({}).then(notes => {

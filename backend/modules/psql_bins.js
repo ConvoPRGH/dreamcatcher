@@ -15,11 +15,11 @@ const getAllBins = async () => {
   }
 };
 
-const getOneBin = async (bin_id) => {
+const getOneBin = async (bin_path) => {
   const text = `SELECT * FROM bins
-                WHERE bins.id = $1`;
+                WHERE bins.bin_path = $1`;
   try {
-    const response = await psql.query(text, [bin_id]);
+    const response = await psql.query(text, [bin_path]);
     return response
   } catch(e) {
     console.log('DB error', e.message);

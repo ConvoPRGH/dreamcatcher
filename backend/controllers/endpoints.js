@@ -10,7 +10,7 @@ endpointsRouter.all('/:bin_path', async (req, res) => {
     res.status(400).send('Bad Request: Bin Path Not Found');
   }
 
-  const path = req.path;
+  const path = req.get('host');
   const method = req.method;
   const payload = {headers: req.headers, body: req.body};
   let mongoUUID;

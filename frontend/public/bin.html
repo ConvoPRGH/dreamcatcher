@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dreamcatcher</title>
+    <script src="javascripts/handlebars-v4.0.5.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="./styles/bin_styles.css">
+  </head>
+  <body>
+    <div id="site-container">
+      <aside id="sidebar" class="flex-col">
+        <h1>
+          Dreamcatcher
+          <span>+ logo</span>
+        </h1>
+        <p>about us</p>
+        <p>dashboard (?)</p>
+      </aside>
+      <main>
+        <h2 id="bin-header">Requests for </h2>
+        <section id="request-list">
+
+          <!-- exclude all spans other than catcher name until stretch goals -->
+          <div class="request"> <!-- This is templated from handlebars -->
+            <span class="request-method"></span>
+            <div class="request-details">
+              <span class="request-path">request path</span>
+              <span class="request-created-at">created at</span>
+            </div> 
+          </div>
+        </section>
+      </main>
+      <!-- the fact that each span has a different class might not be necessary, they could potentially all share a single class such as "catcher-data" -->
+    </div>
+    
+    
+    <script type="module" src="./javascripts/index.js"></script>
+    <script type="text/x-handlebars" id="all_requests">
+      <dl>
+        {{#each request}}
+        <div class="request" data-request_id="{{this.mongo_id}}">
+          <div class="request-details flex-row">
+            <span class="request-data">{{this.http_method}}</span>
+            <span class="request-data">{{this.http_path}}</span>
+            <span class="request-data">{{this.received_at}}</span>
+          </div>
+        </div> 
+        {{/each}}
+      </dl>
+     </script>
+     <script type="text/x-handlebars" id="one_request">
+        <div class="request" data-request_id="{{request.mongo_id}}">
+          <div class="request-details flex-row">
+            <span class="request-data">{{request.http_method}}</span>
+            <span class="request-data">{{request.http_path}}</span>
+            <span class="request-data">{{request.received_at}}</span>
+          </div>
+        </div> 
+     </script>
+  </body>
+</html>

@@ -1,5 +1,15 @@
+#main-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
 #request-bin {
-  width: 50%;
+  width: 40%;
+}
+
+#single-request {
+  margin-left: 20px;
 }
 
 #request-table-head {

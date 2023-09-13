@@ -28,10 +28,12 @@ document.addEventListener('DOMContentLoaded', async() => {
   document.querySelector('#modal a.close').addEventListener('click', toggleModal);
 });
 
-const handleBinClicked = (e) => {
+const handleBinClicked = async (e) => {
   const catcher = e.target.closest(".catcher");
   const bin_path = catcher.dataset.bin_path;
-  alert(`Clicked on catcher ${bin_path}`)
+  
+  const bin = await DB.fetchOneBin(bin_path);
+  alert(JSON.stringify(bin));
 }
 
 const toggleModal = (event) => {

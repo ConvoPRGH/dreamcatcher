@@ -1,5 +1,19 @@
 @import url("reset.css");
 
+#site-container {
+  box-sizing: border-box;
+  max-width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 10% 90%;
+  grid-template-areas: 
+    "sidebar main"
+    "sidebar main"
+    "sidebar main";
+}
+
+
 body, html {
   height: 100vh;
   margin: 0;
@@ -25,16 +39,15 @@ h2 {
 }
 
 #sidebar {
-  width: 20%;
-  height: 100vh;
   padding-top: 30px;
   align-items: center;
+  grid-area: sidebar;
 }
 
 main {
   border: 1px solid black;
-  width: 100%;
   padding: 40px;
+  grid-area: main;
 }
 
 .button-container {

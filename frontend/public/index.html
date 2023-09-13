@@ -16,13 +16,20 @@
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
   </head>
   <body>
-      <aside id="sidebar">Sidebar content goes here
-        <p>logo</p>
+    <div class="flex-row">
+      <aside id="sidebar" class="flex-col">
+        <h1>
+          Dreamcatcher
+          <span>+ logo</span>
+        </h1>
         <p>about us</p>
         <p>dashboard (?)</p>
       </aside>
       <main>
-        <button type="button" id="create-catcher-btn">Create Catcher</button>
+        <h2>Catchers</h2>
+        <div class="button-container">
+          <button type="button" id="create-catcher-btn">Create Catcher</button>
+        </div>
         <section id="bin-list">
 
           <!-- exclude all spans other than catcher name until stretch goals -->
@@ -44,24 +51,27 @@
 
         </section>
       </main>
-    <!-- the fact that each span has a different class might not be necessary, they could potentially all share a single class such as "catcher-data" -->
-    <div id="modal-layer" class="hide"></div>
-    <div id="modal" class="hide">
-      <a href="#" class="close">Close</a>
-      <form id="new-catcher">
-        <h2> Create New Catcher</h2>
-        <label for="name">name:</label>
-        <input type="text" name="name" id="name">
-        <input type="submit" value="Submit">
-      </form>
+      <!-- the fact that each span has a different class might not be necessary, they could potentially all share a single class such as "catcher-data" -->
+      <div id="modal-layer" class="hide"></div>
+      <div id="modal" class="hide">
+        <a href="#" class="close">Close</a>
+        <form id="new-catcher">
+          <h2> Create New Catcher</h2>
+          <label for="name">name:</label>
+          <input type="text" name="name" id="name">
+          <input type="submit" value="Submit">
+        </form>
 
-    </div>    
+      </div>
+    </div>
+    
+    
     <script type="module" src="./javascripts/index.js"></script>
     <script type="text/x-handlebars" id="all_bins" data-type="partial">
       <dl>
         {{#each bin}}
         <div class="catcher">
-          <div class="catcher-details">
+          <div class="catcher-details flex-row">
             <span class="catcher-data">{{this.name}}</span>
             <span class="catcher-data">{{this.created_at}}</span>
             <span class="catcher-data">{{this.bin_path}}</span>

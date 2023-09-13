@@ -126,3 +126,7 @@ main {
   overflow: hidden;
   background: transparent url("../images/icon_close.png") 0 0 no-repeat;
 }
+
+#logo {
+  height: 200px;
+}

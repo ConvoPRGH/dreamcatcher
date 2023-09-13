@@ -13,6 +13,7 @@
     {{/each}}
     -->
     <script src="javascripts/handlebars-v4.0.5.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css">
   </head>
   <body>
       <aside id="sidebar">Sidebar content goes here
@@ -21,8 +22,9 @@
         <p>dashboard (?)</p>
       </aside>
       <main>
-        <button type="button">Create Catcher</button>
+        <button type="button" id="create-catcher-btn">Create Catcher</button>
         <section id="bin-list">
+
           <!-- exclude all spans other than catcher name until stretch goals -->
           <div class="bin"> <!-- This is templated from handlebars -->
             <span class="bin-name">Catcher Name</span>
@@ -39,17 +41,21 @@
               <span class="bin-created-at">Time Created At</span>
             </div> 
           </div>
+
         </section>
       </main>
     <!-- the fact that each span has a different class might not be necessary, they could potentially all share a single class such as "catcher-data" -->
-    <div id="create-modal">
+    <div id="modal-layer" class="hide"></div>
+    <div id="modal" class="hide">
+      <a href="#" class="close">Close</a>
       <form id="new-catcher">
         <h2> Create New Catcher</h2>
         <label for="name">name:</label>
         <input type="text" name="name" id="name">
         <input type="submit" value="Submit">
       </form>
-    </div>
+
+    </div>    
     <script type="module" src="./javascripts/index.js"></script>
     <script type="text/x-handlebars" id="all_bins" data-type="partial">
       <dl>

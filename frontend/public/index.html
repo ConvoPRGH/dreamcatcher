@@ -12,6 +12,7 @@
     </div> 
     {{/each}}
     -->
+    <script src="javascripts/handlebars-v4.0.5.js"></script>
   </head>
   <body>
       <aside id="sidebar">Sidebar content goes here
@@ -50,6 +51,16 @@
       </form>
     </div>
     <script type="module" src="./javascripts/index.js"></script>
+    <script type="text/x-handlebars" id="all_bins" data-type="partial">
+      <dl>
+        {{#each bin}}
+        <div class="catcher">
+          <div class="catcher-details">
+            <span class="catcher-data">{{this.name}}</span>
+          </div>
+        </div> 
+        {{/each}}
+     </script>
   </body>
 </html>
 

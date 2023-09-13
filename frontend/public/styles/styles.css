@@ -1,3 +1,71 @@
+@import url("reset.css");
+
+body, html {
+  height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+#sidebar {
+  width: 20%;
+  height: 100vh;
+  padding-top: 30px;
+  align-items: center;
+}
+
+main {
+  border: 1px solid black;
+  width: 100%;
+  padding: 40px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: right;
+  padding: 20px;
+}
+
+#bin-list {
+  border: 1px solid black;
+}
+
+.catcher {
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+  
+}
+
+.catcher:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+
+.catcher-details {
+  justify-content: space-between;
+}
+
+.catcher-data {
+  width: 20%;
+}
+
 #modal-layer {
   position: fixed;
   display: none;

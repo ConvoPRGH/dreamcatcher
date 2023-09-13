@@ -63,10 +63,25 @@ main {
   border-bottom: 1px solid rgb(24, 97, 170);
 }
 
+#create-catcher-btn {
+  padding: 8px;
+  border: none;
+  background-color: rgb(15, 41, 67);
+  color: white;
+  border-radius: 5px;
+  box-shadow: inset;
+}
+#create-catcher-btn:hover {
+  cursor: pointer;
+  background-color: rgb(32, 61, 70);
+}
+
 #bin-list-header {
   padding: 10px;
   background-color: rgb(18, 68, 118);
   color: white;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 #bin-list {
@@ -94,6 +109,16 @@ main {
   width: 20%;
   height: 40px;
   padding: 10px;
+}
+
+.catcher-name {
+  font-family: Verdana;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.catcher-path {
+  color: rgb(189, 189, 189);
 }
 
 #modal-layer {

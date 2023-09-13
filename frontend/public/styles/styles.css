@@ -54,22 +54,30 @@ main {
   color: white;
 }
 
-.button-container {
+#catcher-table-head {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   padding: 20px;
+  background-color: rgb(18, 68, 118);
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid rgb(24, 97, 170);
+}
+
+#bin-list-header {
+  padding: 10px;
+  background-color: rgb(18, 68, 118);
+  color: white;
 }
 
 #bin-list {
   padding: 10px;
-  border: 1px solid black;
   background-color: rgb(15, 41, 67);
   color: white;
 }
 
 .catcher {
   padding: 5px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgb(18, 68, 118);
   
 }
 

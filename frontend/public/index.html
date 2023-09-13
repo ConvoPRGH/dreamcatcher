@@ -33,30 +33,20 @@
         <p>dashboard (?)</p>
       </aside>
       <main>
-        <h2>Catchers</h2>
-        <div class="button-container">
-          <button type="button" id="create-catcher-btn">Create Catcher</button>
+
+        <div id="catcher-table-head">
+          <span>
+            <h2>Catchers</h2>
+          </span>
+          <span>
+              <button type="button" id="create-catcher-btn">Create Catcher</button>
+          </span>
         </div>
-        <section id="bin-list">
-
-          <!-- exclude all spans other than catcher name until stretch goals -->
-          <div class="bin"> <!-- This is templated from handlebars -->
-            <span class="bin-name">Catcher Name</span>
-            <div class="bin-details">
-              <span class="bin-url">Catcher URL</span>
-              <span class="bin-created-at">Time Created At</span>
-            </div> 
-          </div>
-
-          <div class="bin"> <!-- This is templateed from handlebars -->
-            <span class="bin-name">Catcher Name</span>
-            <div class="bin-details">
-              <span class="bin-url">Catcher URL</span>
-              <span class="bin-created-at">Time Created At</span>
-            </div> 
-          </div>
-
-        </section>
+        <div id="bin-list-header">
+          <span style="margin-right: 400px;">name</span>
+          <span>last request</span>
+        </div>
+        <section id="bin-list"></section>
       </main>
       <!-- the fact that each span has a different class might not be necessary, they could potentially all share a single class such as "catcher-data" -->
       <div id="modal-layer" class="hide"></div>

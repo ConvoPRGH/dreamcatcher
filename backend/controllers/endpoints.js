@@ -23,7 +23,7 @@ endpointsRouter.all('/:bin_path', (req, res) => {
   const payload = {headers: req.headers, body: req.body};
 
   // validate bin_path
-  insertPayload(JSON.stringify(payload));
+  insertPayload(JSON.stringify(payload), res);
 
   res.status(200).send(`Thanks for the ${req.method} request`)
 })

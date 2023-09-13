@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', async() => {
 
 const handleBinClicked = (e) => {
   const catcher = e.target.closest(".catcher");
-  const id = catcher.dataset.id;
-  alert(`Clicked on catcher ${id}`)
+  const bin_path = catcher.dataset.bin_path;
+  alert(`Clicked on catcher ${bin_path}`)
 }
 
 const toggleModal = (event) => {

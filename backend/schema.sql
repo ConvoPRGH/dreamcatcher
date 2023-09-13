@@ -7,7 +7,7 @@ CREATE TABLE bins (
 
 CREATE TABLE requests (
   id int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  bin_id int REFERENCES bins(id) ON DELETE CASCADE,
+  bin_path varchar(100) REFERENCES bins(bin_path) ON DELETE CASCADE,
   mongo_id varchar(100) UNIQUE NOT NULL,
   received_at timestamp NOT NULL,
   http_method varchar(20) NOT NULL,

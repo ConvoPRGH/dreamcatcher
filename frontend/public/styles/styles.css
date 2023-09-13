@@ -1,5 +1,6 @@
 #modal-layer {
   position: fixed;
+  display: none;
   top: 0;
   right: 0;
   bottom: 0;
@@ -10,6 +11,7 @@
 
 #modal {
   position: absolute;
+  display: none;
   left: 50%;
   z-index: 3;
   width: 660px;
@@ -22,15 +24,6 @@
       transition: visibility 0.3s, opacity 0.3s;
 }
 
-.hide {
-  visibility: hidden;
-  opacity: 0;
-}
-
-.show {
-  visibility: visible;
-  opacity: 1;
-}
 
 #modal a.close {
   position: absolute;

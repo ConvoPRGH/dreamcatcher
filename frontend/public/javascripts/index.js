@@ -22,23 +22,19 @@ document.addEventListener('DOMContentLoaded', async() => {
   // console.log(seed.getOneRequest());
   // console.log(seed.getRequests());
   document.querySelector("#new-catcher").addEventListener('submit', handleNewBinSubmit);
-  document.querySelector('#create-catcher-btn').addEventListener("click", showModal);
-  document.querySelector('#modal-layer').addEventListener('click', hideModal);
-  document.querySelector('#modal a.close').addEventListener('click', hideModal);
+  document.querySelector('#create-catcher-btn').addEventListener("click", toggleModal);
+  document.querySelector('#modal-layer').addEventListener('click', toggleModal);
+  document.querySelector('#modal a.close').addEventListener('click', toggleModal);
 });
 
-const showModal = (event) => {
+const toggleModal = (event) => {
   // not DRY
   event.preventDefault();
-  document.querySelector('#modal-layer').classList.replace('hide', 'show');
-  document.querySelector('#modal').classList.replace('hide', 'show');
-};
-
-const hideModal = (event) => {
-  // not DRY
-  event.preventDefault();
-  document.querySelector('#modal-layer').classList.replace('show', 'hide');
-  document.querySelector('#modal').classList.replace('show', 'hide');
+  const modal = document.querySelector('#modal');;
+  const modalLayer = document.querySelector('#modal-layer');
+  const showHide = modal.style.display === 'block' ? 'none' : 'block';
+  modal.style.display = showHide;
+  modalLayer.style.display = showHide;
 };
 
 const handleNewBinSubmit = async(event) => {

@@ -1,5 +1,5 @@
 const binsRouter = require('express').Router();
-const { getAllBins, getAllRequests, getOneBin } = require('../modules/psql_bins.js');
+const { getAllBins, getAllRequests, getOneBin, createNewBin } = require('../modules/psql_bins.js');
 
 binsRouter.get('/', async (req, res) => {
   try {
@@ -12,7 +12,9 @@ binsRouter.get('/', async (req, res) => {
 
 binsRouter.post('/', async (req, res) => {
   const { name } = req.body;
+  console.log(req)
   try {
+    console.log(req.body)
     const data = await createNewBin(name)
     res.status(201).json(data.rows);
   } catch(e) {

@@ -15,7 +15,8 @@
     "express": "^4.18.2",
     "mongoose": "^7.5.1",
     "node": "^20.6.0",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

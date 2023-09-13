@@ -20,7 +20,6 @@ const insertRequestToPSQL = async (binPath, mongoUUID, method, path) => {
                 VALUES ($1, $2, now(), $3, $4)`
   try {
     const response = await psql.query(text, [binPath, mongoUUID, method, path]);
-    console.log(response);
     return response;
   } catch(e) {
     console.log('Error inserting Request into PSQL', e.message);

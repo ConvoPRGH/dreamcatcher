@@ -23,7 +23,7 @@ endpointsRouter.all('/:bin_path', async (req, res) => {
 
   try {
     const data = await insertRequestToPSQL(binPath, mongoUUID, method, path);
-    res.status(201).json(data.rows);
+    res.status(201).json({status: 201, created: 'ok'});
   } catch(e) {
     console.log('Error inserting request to PSQL', e.message);
   }

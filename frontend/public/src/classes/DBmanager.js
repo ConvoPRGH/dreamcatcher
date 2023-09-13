@@ -7,12 +7,23 @@ export default class DBmanager {
       data.forEach(entry => entry.created_at = this.#convertPSQLTimestamp(entry.created_at));
       return data
     } catch(e) {
-      console.log(e.message)
+      console.log(e.message);
     }
   };
 
-  // TODO - convert timestamp function
-  // psql timestamp format 2023-09-12T23:36:04.310Z 
+  async createNewBin(name) {
+    const binName = { name }
+    try {
+      const url = 'http://localhost:3000/api/bins'
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(binName)
+      })
+      return response.json();
+    } catch(e) {
+      console.log(e.message);
+    }
+  }
 
   #convertPSQLTimestamp(timestamp) {
     let [date, time] = timestamp.split('T');

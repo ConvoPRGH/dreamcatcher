@@ -10,6 +10,16 @@ binsRouter.get('/', async (req, res) => {
   }
 });
 
+binsRouter.post('/', async (req, res) => {
+  const { name } = req.body;
+  try {
+    const data = await createNewBin(name)
+    res.status(201).json(data.rows);
+  } catch(e) {
+    console.log('Error creating new bin', e.message)
+  }
+})
+
 // notesRouter.get('/', (request, response) => {
 //   Note.find({}).then(notes => {
 //     response.json(notes)

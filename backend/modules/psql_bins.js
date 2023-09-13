@@ -26,12 +26,11 @@ const getOneBin = async (bin_path) => {
   }
 };
 
-const getAllRequests = async (bin_id) => {
-  const text = `SELECT * FROM requests(r)
-                JOIN bins(b) ON b.id = r.bin_path
-                WHERE b.id = $1`;
+const getAllRequests = async (bin_path) => {
+  const text = `SELECT * FROM requests
+                WHERE bin_path = $1`;
   try {
-    const response = await psql.query(text, [bin_id]);
+    const response = await psql.query(text, [bin_path]);
     return response;
   } catch(e) {
     console.log('Error retrieving requests', e.message);

@@ -1,79 +1,51 @@
-@import url("reset.css");
-
-#site-container {
-  box-sizing: border-box;
-  max-width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 20% 80%;
-  grid-template-rows: 10% 90%;
-  grid-template-areas: 
-    "sidebar main"
-    "sidebar main"
-    "sidebar main";
+#request-bin {
+  width: 50%;
 }
 
-
-body, html {
-  height: 100vh;
-  margin: 0;
-}
-
-h1 {
-  font-size: 2em;
-}
-
-h2 {
-  font-size: 1.5em;
-}
-
-.flex-row {
+#request-table-head {
   display: flex;
-  flex-direction: row;
-}
-
-.flex-col {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-}
-
-main {
-  border: 1px solid black;
-  padding: 40px;
-  grid-area: main;
-  color: white;
-}
-
-.button-container {
-  display: flex;
-  justify-content: right;
+  justify-content: space-between;
   padding: 20px;
+  background-color: rgb(18, 68, 118);
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid rgb(24, 97, 170);
 }
 
-#bin-list {
-  border: 1px solid black;
-  background-color: rgb(95, 5, 137);
+#request-list-header {
+  padding: 10px;
+  background-color: rgb(18, 68, 118);
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#request-list {
+  padding: 10px;
+  background-color: rgb(15, 41, 67);
   color: white;
 }
 
-.catcher {
+.request-details {
+  display: flex;
+}
+
+.request {
   padding: 5px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid rgb(18, 68, 118);
   
 }
 
-.catcher:hover {
+.request:hover {
   cursor: pointer;
-  background-color: #b576da;
+  background-color: rgb(32, 61, 70);
 }
 
-.catcher-details {
+.request-details {
   justify-content: space-between;
 }
 
-.catcher-data {
-  width: 20%;
+.request-data {
+  flex-shrink: 3;
   height: 40px;
   padding: 10px;
 }

@@ -45,7 +45,6 @@ export default class DBmanager {
     try {
       const response = await fetch(`http://localhost:3000/api/bins/${bin_id}/requests`)
       let data = await response.json()
-      console.log(data)
       data.forEach(entry => entry.created_at = this.#convertPSQLTimestamp(entry.received_at));
       return data
     } catch(e) {

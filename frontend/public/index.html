@@ -2,16 +2,6 @@
 <html>
   <head>
     <title>Dreamcatcher</title>
-    <!-- potential handlebars template 
-    {{#each bin}}
-    <div class="catcher">
-      <div class="catcher-details">
-        <span class="catcher-data>{{name}}</span>
-         other spans, or use partial for multiple spans
-      </div>
-    </div> 
-    {{/each}}
-    -->
     <script src="javascripts/handlebars-v4.0.5.js"></script>
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
@@ -25,12 +15,13 @@
   <body>
     <div id="site-container">
       <aside id="sidebar" class="flex-col">
-        <h1>
-          Dreamcatcher
-          <img id="logo" src="./images/dreamcatcherlogo.png">
-        </h1>
-        <p>about us</p>
-        <p>dashboard (?)</p>
+        <h1>Dreamcatcher</h1>
+        <img id="logo" src="./images/dreamcatcherlogo.png">
+        <div class="about">
+          <p>about us</p>
+          <p>dashboard</p>
+        </div>
+
       </aside>
       <main>
 

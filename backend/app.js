@@ -4,6 +4,7 @@ const config = require('./utils/config');
 const middleware = require('./utils/middleware');
 const mongoose = require('mongoose');
 const binsRouter = require('./controllers/bins.js')
+const endpointsRouter = require('./controllers/endpoints.js')
 const path = require('path');
 
 // TODO
@@ -17,6 +18,7 @@ app.use(cors());
 app.use(express.json())
 app.use(middleware.requestLogger)
 app.use('/api/bins/', binsRouter)
+app.use('/api/', endpointsRouter)
 
 console.log(`connecting to ${config.MONGODB_URI}`);
 (async () => {
@@ -33,16 +35,10 @@ app.get('/', (req, res) => {
   res.sendFile(filePath)
 });
 
-// Accepts a request of ANY METHOD to process
-app.all('/bins/:bin_path', (req, res) => {
-  const binPath = req.params.bin_path;
-  console.log(`Got a request to ${binPath}`);
-  console.log(`Method: ${req.method}`);
-  console.log(req.path);
-  console.log(req.body);
-  res.status(200).send(`Thanks for the ${req.method} request`)
-})
-
+app.get('/:bin_path', (req, res) => {
+  const filePath = path.join(__dirname, '../frontend/public/bin.html');
+  res.sendFile(filePath)
+});
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

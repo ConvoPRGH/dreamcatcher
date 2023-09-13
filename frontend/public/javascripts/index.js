@@ -1,17 +1,33 @@
 import Bin from '../src/classes/Bin';
 import Request from '../src/classes/Request';
-
+import TemplateManager from '../src/classes/TemplateManager';
+import DBmanager from '../src/classes/DBmanager';
 import Seed from '../src/utils/Seed';
 
 const seed = new Seed();
 
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('index.js loaded');
-  console.log(seed.getOneBin());
-  console.log(seed.getBins());
-  console.log(seed.getOneRequest());
-  console.log(seed.getRequests());
+document.addEventListener('DOMContentLoaded', async() => {
+  // load the templates
+  // render the main page
+  try { 
+    const manager = new TemplateManager;
+    const DB = new DBmanager;
+    const list = document.querySelector('#bin-list');
+    const listData = await DB.fetchAllBins();
+    list.innerHTML = manager.templates.all_bins({bin: listData});
+  } catch (e) {
+    console.log(e.messsage);
+  }
+  
+
+  // console.log('index.js loaded');
+  // console.log(seed.getOneBin());
+  // console.log(seed.getBins());
+  // console.log(seed.getOneRequest());
+  // console.log(seed.getRequests());
 });
+
+
 
 // console.log(seed.getBins());
 // Bin {

@@ -15,10 +15,15 @@ export default class DBmanager {
     const binName = { name }
     try {
       const url = 'http://localhost:3000/api/bins'
+      console.log(binName);
+      console.log(JSON.stringify(binName));
       const response = await fetch(url, {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify(binName)
-      })
+      });
       return response.json();
     } catch(e) {
       console.log(e.message);

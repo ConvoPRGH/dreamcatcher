@@ -32,7 +32,7 @@ const handleNewBinSubmit = async(e) => {
   e.preventDefault();
   
   let binName = document.querySelector("#name").value;
-  const data = await DB.createnewBin(binName);
+  const data = await DB.createNewBin(binName);
 }
 
 

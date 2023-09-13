@@ -18,15 +18,7 @@ document.addEventListener('DOMContentLoaded', async() => {
   } catch (e) {
     console.log(e.messsage);
   }
-  
-
-  // console.log('index.js loaded');
-  // console.log(seed.getOneBin());
-  // console.log(seed.getBins());
-  // console.log(seed.getOneRequest());
-  // console.log(seed.getRequests());
 });
-
 
 
 // console.log(seed.getBins());

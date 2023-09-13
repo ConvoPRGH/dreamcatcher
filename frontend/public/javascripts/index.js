@@ -22,10 +22,17 @@ document.addEventListener('DOMContentLoaded', async() => {
   // console.log(seed.getOneRequest());
   // console.log(seed.getRequests());
   document.querySelector("#new-catcher").addEventListener('submit', handleNewBinSubmit);
+  document.querySelector("#bin-list").addEventListener('click', handleBinClicked);
   document.querySelector('#create-catcher-btn').addEventListener("click", toggleModal);
   document.querySelector('#modal-layer').addEventListener('click', toggleModal);
   document.querySelector('#modal a.close').addEventListener('click', toggleModal);
 });
+
+const handleBinClicked = (e) => {
+  const catcher = e.target.closest(".catcher");
+  const id = catcher.dataset.id;
+  alert(`Clicked on catcher ${id}`)
+}
 
 const toggleModal = (event) => {
   // not DRY

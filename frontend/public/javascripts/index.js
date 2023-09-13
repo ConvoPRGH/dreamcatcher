@@ -11,8 +11,6 @@ document.addEventListener('DOMContentLoaded', async() => {
     const list = document.querySelector('#bin-list');
     const listData = await DB.fetchAllBins();
     const bins = mapToBins(listData)
-    console.log(listData)
-    console.log(bins)
     list.innerHTML = manager.templates.all_bins({bin: bins});
     const events = new Events();
     events.createMainPageEvents();

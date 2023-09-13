@@ -1,14 +1,25 @@
 import Bin from '../src/classes/Bin';
 import Request from '../src/classes/Request';
 import TemplateManager from '../src/classes/TemplateManager';
+import DBmanager from '../src/classes/DBmanager';
 import Seed from '../src/utils/Seed';
 
 const seed = new Seed();
 
-document.addEventListener('DOMContentLoaded', function() {
-  const manager = new TemplateManager;
-  populateLists(manager.templates.all_bins);
-  console.log(manager.templates)
+document.addEventListener('DOMContentLoaded', async() => {
+  // load the templates
+  // render the main page
+  try { 
+    const manager = new TemplateManager;
+    const DB = new DBmanager;
+    const list = document.querySelector('#bin-list');
+    const listData = await DB.fetchAllBins();
+    list.innerHTML = manager.templates.all_bins({bin: listData});
+  } catch (e) {
+    console.log(e.messsage);
+  }
+  
+
   // console.log('index.js loaded');
   // console.log(seed.getOneBin());
   // console.log(seed.getBins());
@@ -16,16 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // console.log(seed.getRequests());
 });
 
-const populateLists = async (all_bins) => {
-  try {
-    const list = document.querySelector('#bin-list')
-    const response = await fetch('http://localhost:3000/api/bins')
-    const data = await response.json()
-    list.innerHTML = all_bins({bin: data})
-  } catch(e) {
-    console.log(e.message)
-  }
-};
+
 
 // console.log(seed.getBins());
 // Bin {

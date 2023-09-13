@@ -14,11 +14,12 @@ document.addEventListener('DOMContentLoaded', async() => {
     binHeader.innerHTML = binData[0].name;
 
     const list = document.querySelector('#request-list');
+    const requestBox = document.querySelector('#single-request');
     const requestData = await DB.fetchAllRequests(binId);
-    console.log(requestData)
     const requests = mapToRequests(requestData);
-    console.log(requests)
     list.innerHTML = manager.templates.all_requests({request: requests});
+    requestBox.innerHTML = manager.templates.one_request({request: requests[0]})
+
   } catch (error) {
     console.log(error.messsage);
   }

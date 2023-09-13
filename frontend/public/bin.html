@@ -18,19 +18,30 @@
         </div>
       </aside>
       <main>
-        <div id="request-bin">
-          <div id="request-table-head">
-            <span>
-              <h2>Requests for <span id="bin-header">[bin]</span></h2>
-            </span>
+        <span id="main-content">
+          <div id="request-bin">
+            <div id="request-table-head">
+              <span>
+                <h2>Requests for <span id="bin-header">[bin]</span></h2>
+              </span>
+            </div>
+            <div id="request-list-header">
+              <span>method</span>
+              <span>path</span>
+              <span>received at</span>
+            </div>
+            <section id="request-list"></section>
           </div>
-          <div id="request-list-header">
-            <span>method</span>
-            <span>path</span>
-            <span>received at</span>
+          <div>
+            <div id="request-table-head">
+              <span>
+                <h2>Requests for <span id="bin-header">[bin]</span></h2>
+              </span>
+              </div>
+              <div id="single-request"></div>
           </div>
-          <section id="request-list"></section>
-        </div>
+            
+        </span>
       </main>
       <!-- the fact that each span has a different class might not be necessary, they could potentially all share a single class such as "catcher-data" -->
     </div>
@@ -40,7 +51,7 @@
     <script type="text/x-handlebars" id="all_requests">
       <dl>
         {{#each request}}
-        <div class="request" data-request_id="{{this.mongo_id}}">
+        <div class="request" data-request_id="{{this.id}}">
           <div class="request-details">
             <span class="request-data">{{this.http_method}}</span>
             <span class="request-data">{{this.http_path}}</span>
@@ -51,13 +62,17 @@
       </dl>
      </script>
      <script type="text/x-handlebars" id="one_request">
-        <div class="request" data-request_id="{{request.mongo_id}}">
+        <div class="request" data-request_id="{{request.id}}">
           <div class="request-details">
-            <span class="request-data">{{request.http_method}}</span>
-            <span class="request-data">{{request.http_path}}</span>
-            <span class="request-data">{{request.received_at}}</span>
+            <h3>Method</h3>
+            <div>{{request.http_method}}</div>
+            <h3>Path</h3>
+            <div>{{request.http_path}}</div>
+            <h3>Payload</h3>
+            <div>{{request.payload}}</div>
           </div>
         </div> 
      </script>
+  
   </body>
 </html>

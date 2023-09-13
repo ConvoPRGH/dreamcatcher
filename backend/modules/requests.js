@@ -1,18 +1,17 @@
-const mongoose = require('mongoose');
-const Payload  = require('./payload.js');
+const Payload = require('./payload.js');
+const {v4 : uuidv4} = require('uuid')
 
 
 const insertPayload = async (payload) => {
-  const newPayload = new Payload({payload});
+  const uuid = uuidv4();
+  const newPayload = new Payload({payload: payload, request_id: uuid});
 
   try {
     const mongoDoc = await newPayload.save();
-    console.log(mongoDoc)
-    res.status(200).json(mongoDoc);
+    return uuid
   } catch (error) {
-    res.status(400).json({message: error.message});
+    console.log('Error inserting into Mongo', e);
   }
-
 };
 
 module.exports = {insertPayload};

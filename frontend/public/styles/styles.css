@@ -71,6 +71,13 @@ main {
   border-bottom: 1px solid rgb(24, 97, 170);
 }
 
+#catcher-table-footer {
+  padding: 20px;
+  background-color: rgb(18, 68, 118);
+  border-radius: 0 0 10px 10px;
+  border-top: 1px solid rgb(24, 97, 170);
+}
+
 #table-title {
   margin-top: 3px;
 }

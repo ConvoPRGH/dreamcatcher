@@ -13,7 +13,3 @@ CREATE TABLE requests (
   http_method varchar(20) NOT NULL,
   http_path text NOT NULL
 );
-
-
-INSERT INTO bins (name, created_at, bin_path)
-VALUES ('test_bin', now(), '12345');

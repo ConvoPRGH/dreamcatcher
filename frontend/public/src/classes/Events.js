@@ -22,7 +22,7 @@ export default class Events {
   }
 
   handleBinRoute(e) {
-    if (e.target.classList.contains('delete-button')) {
+    if (e.target.closest('span').classList.contains('delete-button')) {
       return;
     }
     const catcher = e.target.closest(".catcher");
@@ -32,7 +32,7 @@ export default class Events {
   }
 
   handleBinDelete(e) {
-    if (!e.target.classList.contains('delete-button')) {
+    if (!e.target.closest('span').classList.contains('delete-button')) {
       return;
     }
     const catcher = e.target.closest(".catcher");

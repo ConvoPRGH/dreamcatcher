@@ -22,7 +22,7 @@ export default class Events {
   }
 
   handleBinRoute(e) {
-    if (e.target.classList.contains('delete-button')) {
+    if (e.target.closest('span').classList.contains('delete-button')) {
       return;
     }
     const catcher = e.target.closest(".catcher");
@@ -32,7 +32,7 @@ export default class Events {
   }
 
   handleBinDelete(e) {
-    if (!e.target.classList.contains('delete-button')) {
+    if (!e.target.closest('span').classList.contains('delete-button')) {
       return;
     }
     const catcher = e.target.closest(".catcher");
@@ -70,11 +70,15 @@ export default class Events {
   async handleNewBinSubmit(e) {
     e.preventDefault();
     let binName = document.querySelector("#name").value;
-    if (binName !== "") {
+    if (binName === "") {
+      alert('Name is required.');
+      return
+    } else if (binName.length > 75) {
+      alert('Name must be less than 75 characters');
+      return
+    } else {
       await this.DB.createNewBin(binName);
       location.reload();
-    } else {
-      alert('Name is required.');
     }
   }
 }

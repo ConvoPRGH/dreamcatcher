@@ -63,9 +63,10 @@ export default class DBmanager {
   }
 
   #convertPSQLTimestamp(timestamp) {
-    let [date, time] = timestamp.split('T');
-    time = time.slice(0, 8);
-    return date + ' ' + time;
+    const [date, time] = timestamp.split('T');
+    let jsTime = new Date(date + ' ' + time.slice(0, 8));
+    jsTime.setHours(jsTime.getHours() - 4);
+    return jsTime;
   }
 
   #convertToCurrentRelativePath(href) {

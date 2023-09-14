@@ -38,10 +38,11 @@ const mapToRequests = (requests) => {
 };
 
 const connectToWSS = (binPath, requests, list, manager) => {
-  const socket = new WebSocket(`ws://localhost:3005?binPath=${binPath}`);
-
+  const path = convertToCurrentRelativePath(window.location.href)
+  const socket = new WebSocket(`ws://${path}:3005?binPath=${binPath}`);
+  console.log("Attempting to connect to WSS on:")
+  console.log(`ws://${path}:3005?binPath=${binPath}`)
   socket.onmessage = (event) => {
-    console.log("here");
     const requestData = JSON.parse(event.data);
     // Render the new request
     requests.unshift(new Request(requestData));
@@ -52,4 +53,11 @@ const connectToWSS = (binPath, requests, list, manager) => {
   socket.onerror = (error) => {
     console.log(`WebSocket Error: ${error.message}`);
   }
+}
+
+
+const convertToCurrentRelativePath = (href) => {
+  let currentPath = href.split('/')
+  currentPath = currentPath.slice(0, currentPath.length - 1)
+  return currentPath.join('/');
 }

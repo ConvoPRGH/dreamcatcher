@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async() => {
     const requestData = await DB.fetchAllRequests(binId);
     const requests = mapToRequests(requestData);
     const workingReq = requests[0].payload;
+    const jsonData = JSON.parse(workingReq);
 
     list.innerHTML = manager.templates.all_requests({request: requests});
     if (requests.length > 0) {
@@ -34,8 +35,6 @@ document.addEventListener('DOMContentLoaded', async() => {
 
     const events = new Events(DB);
     events.createBinPageEvents(requests, requestBox, manager);
-
-    const jsonData = JSON.parse(workingReq);
 
     
     document.querySelector('.body-toggle-icon').addEventListener('click', (e) => {

@@ -59,10 +59,22 @@ const getAllPayloads = async (mongoIds) => {
   }
 }
 
+const deleteBin = async (bin_id) => {
+  const text = `DELETE FROM bins
+                WHERE bin_path = $1`;
+  try {
+    const response = await psql.query(text, [bin_path]);
+    return response;
+  } catch(e) {
+    console.log('Error deleting bin', e.message)
+  }
+}
+
 module.exports = {
   getAllBins,
   getOneBin,
   getAllRequests,
   createNewBin,
-  getAllPayloads
+  getAllPayloads,
+  deleteBin
 };

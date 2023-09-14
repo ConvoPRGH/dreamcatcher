@@ -24,6 +24,20 @@ const insertRequestToPSQL = async (binPath, mongoUUID, method, path) => {
   } catch(e) {
     console.log('Error inserting Request into PSQL', e.message);
   }
+};
+
+const deleteRequest = async (mongoUUID) => {
+  const text = `DELETE FROM requests
+                WHERE mongo_id = $1`;
+  try {
+    // TODO need to error handle these and return a proper response
+    const response = await psql.query(text, [mongoUUID]);
+    const mongo_res = await Payload.deleteOne({reequest_id: mongoUUID});
+    return response;
+  } catch(e) {
+    console.log('Error deleting bin', e.message)
+  }
 }
 
-module.exports = { insertPayloadToMongo, insertRequestToPSQL };
+
+module.exports = { insertPayloadToMongo, insertRequestToPSQL, deleteRequest };

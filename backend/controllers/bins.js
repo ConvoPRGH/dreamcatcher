@@ -1,6 +1,6 @@
 const binsRouter = require('express').Router();
-const { getAllBins, getAllRequests, getOneBin, createNewBin, getAllPayloads } = require('../modules/psql_bins.js');
-const Payload = require('../modules/payload.js');
+const { getAllBins, getAllRequests, getOneBin, createNewBin, getAllPayloads, deleteBin } = require('../modules/psql_bins.js');
+const { deleteRequest } = require('../modules/requests.js');
 
 binsRouter.get('/', async (req, res) => {
   try {
@@ -36,7 +36,17 @@ binsRouter.get('/:bin_path/requests', async (req, res) => {
   } catch(e) {
     console.log('Error retrieving requests from SQL', e.message);
   }
-})
+});
+
+binsRouter.delete('/:bin_path/requests/:request_id', async (req, res) => {
+  const request_id = req.params.request_id;
+  try {
+    const response = await deleteRequest(request_id);
+    res.status(200).json({deleted: 'OK'});
+  } catch(e) {
+    console.log('error after deleting request', e.message);
+  }
+});
 
 binsRouter.get('/:bin_path', async (req, res) => {
   const binPath = req.params.bin_path;
@@ -46,7 +56,17 @@ binsRouter.get('/:bin_path', async (req, res) => {
   } catch(e) {
     console.log('Error returning SQL', e.message)
   }
-})
+});
+
+binsRouter.delete('/:bin_path', async (req, res) => {
+  const binPath = req.params.bin_path;
+  try {
+    const data = await deleteBin(binPath);
+    res.status(200).json({deleted: 'OK'});
+  } catch(e) {
+    console.log('Error returning SQL', e.message)
+  }
+});
 
 binsRouter.post('/', async (req, res) => {
   const { name } = req.body;

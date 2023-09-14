@@ -26,7 +26,8 @@ export default class Events {
     }
     const catcher = e.target.closest(".catcher");
     const bin_path = catcher.dataset.bin_path;
-    window.location.href = `/${bin_path}`;
+    const path = window.location.origin;
+    window.location.href = `${path}/${bin_path}`;
   }
 
   handleBinDelete(e) {

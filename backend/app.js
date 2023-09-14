@@ -20,7 +20,6 @@ app.ws('/websocket', (ws, req) => {
   ws.on('message', (message) => {
     console.log(`Received message: ${message}`);
   });
-
   const query = url.parse(req.url, true).query;
   const binPath = query.binPath;
 
@@ -29,7 +28,6 @@ app.ws('/websocket', (ws, req) => {
 
   // Add the WebSocket client to the set
   clients.add(ws);
-
   // Handle client disconnection
   ws.on('close', () => {
     // Remove the WebSocket client from the set when they disconnect

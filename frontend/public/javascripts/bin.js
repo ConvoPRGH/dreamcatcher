@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', async() => {
     events.createBinPageEvents(requests, requestBox, manager);
   } catch (error) {
     console.log(error.messsage);
+    console.log(error);
   }
 });
 
@@ -39,17 +40,15 @@ const mapToRequests = (requests) => {
 
 const connectToWSS = (binPath, requests, list, manager) => {
   const path = convertToCurrentRelativePath(window.location.href)
-  console.log(path);
-  const socket = new WebSocket(`ws://${path}/websocket?binPath=${binPath}`);
   console.log("Attempting to connect to WSS on:")
-  console.log(`ws://${path}:3000?binPath=${binPath}`)
+  console.log(`ws://${path}/websocket?binPath=${binPath}`)
+  const socket = new WebSocket(`wss://${path}/websocket?binPath=${binPath}`);
+  
   socket.onmessage = (event) => {
     const requestData = JSON.parse(event.data);
-    console.log("here");
     // Render the new request
     requests.unshift(new Request(requestData));
     list.innerHTML = manager.templates.all_requests({request: requests});
-    console.log("Received Request:", requestData);
   }
 
   socket.onerror = (error) => {

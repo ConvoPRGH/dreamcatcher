@@ -29,7 +29,7 @@ module.exports = (wss, clients) => {
       const requestRow = data.rows[0];
       requestRow.payload = mongoPayload;
 
-      sendNewRequestToClients(wss, requestRow)
+      sendNewRequestToClients(wss, requestRow, clients)
       
       res.status(201).json({status: 201, created: 'ok'});
     } catch(e) {
@@ -38,8 +38,6 @@ module.exports = (wss, clients) => {
   })
 
   const sendNewRequestToClients = (wss, requestRow) => {
-    console.log(clients);
-    console.log(clients.binPath);
     if (clients) {
       clients.forEach((client) => {
         // Only send to the appropriate clients

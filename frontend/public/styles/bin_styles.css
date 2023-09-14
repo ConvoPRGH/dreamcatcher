@@ -4,6 +4,23 @@
   gap: 20px;
 }
 
+#nav-buttons {
+  margin: 20px;
+}
+
+#back-button {
+  margin-right: 20px;
+}
+
+#copy-button {
+  padding: 8px;
+  border: 1px solid white;
+  background-color: rgb(18, 68, 118);
+  color: white;
+  border-radius: 5px;
+  box-shadow: -1px 1px 0px 2px rgba(195, 195, 195, 0.2);
+}
+
 #request-bin {
   width: 40%;
 }

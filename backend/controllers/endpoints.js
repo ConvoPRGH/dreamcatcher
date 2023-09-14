@@ -2,7 +2,7 @@ const endpointsRouter = require('express').Router();
 const { insertPayloadToMongo, insertRequestToPSQL } = require('../modules/requests.js');
 const { getOneBin } = require('../modules/psql_bins.js');
 
-module.exports = (wss) => {
+module.exports = (wss, clients) => {
   endpointsRouter.all('/:bin_path', async (req, res) => {
     const binPath = req.params.bin_path;
     const binData = await getOneBin(binPath);
@@ -38,8 +38,10 @@ module.exports = (wss) => {
   })
 
   const sendNewRequestToClients = (wss, requestRow) => {
-    if (wss.clients) {
-      wss.clients.forEach((client) => {
+    console.log(clients);
+    console.log(clients.binPath);
+    if (clients) {
+      clients.forEach((client) => {
         // Only send to the appropriate clients
         if (client.binPath == requestRow.bin_path) {
           client.send(JSON.stringify(requestRow));

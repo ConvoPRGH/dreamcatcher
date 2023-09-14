@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', async() => {
 
     list.innerHTML = manager.templates.all_requests({request: requests});
     requestBox.innerHTML = manager.templates.one_request({request: requests[0]})
-
+    console.log(requests);
      // connect to backend WSS
-    connectToWSS(binId);
+    connectToWSS(binId, requests, list, manager);
 
     const events = new Events(DB);
     events.createBinPageEvents(requests, requestBox, manager);
@@ -34,15 +34,18 @@ document.addEventListener('DOMContentLoaded', async() => {
 });
 
 const mapToRequests = (requests) => {
-  return requests.map(request => new Request(request))
+  return requests.map(request => new Request(request)).reverse();
 };
 
-const connectToWSS = (binPath) => {
+const connectToWSS = (binPath, requests, list, manager) => {
   const socket = new WebSocket(`ws://localhost:3005?binPath=${binPath}`);
 
   socket.onmessage = (event) => {
+    console.log("here");
     const requestData = JSON.parse(event.data);
     // Render the new request
+    requests.unshift(new Request(requestData));
+    list.innerHTML = manager.templates.all_requests({request: requests});
     console.log("Received Request:", requestData);
   }
 

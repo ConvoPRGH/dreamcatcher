@@ -153,6 +153,11 @@ main {
   animation: fade-out 1s 0.5s ease-out forwards;
 }
 
+.resizable-div {
+  max-height: 90%;
+  overflow: auto;
+}
+
 @keyframes fade-out {
   0% {
     opacity: 1;

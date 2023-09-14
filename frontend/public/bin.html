@@ -32,7 +32,7 @@
             </div>
             <section id="request-list"></section>
           </div>
-          <div>
+          <div id="single-request-container">
             <div id="request-table-head">
               <span>
                 <h2>Details for <span id="bin-header">[request]</span></h2>
@@ -55,6 +55,7 @@
             <span class="request-data">{{this.http_method}}</span>
             <span class="request-data">{{this.http_path}}</span>
             <span class="request-data">{{this.received_at}}</span>
+            <span class="delete-button"><img src="./images/delete.png" style="width: 24px; height: 24px;"></span>
           </div>
         </div> 
         {{/each}}
@@ -62,7 +63,7 @@
      </script>
      <script type="text/x-handlebars" id="one_request">
         <div class="request" data-request_id="{{request.mongo_id}}">
-          <div class="request-details">
+          <div class="single-request-details">
             <h3>Method</h3>
             <div>{{request.http_method}}</div>
             <h3>Path</h3>

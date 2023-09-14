@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', async() => {
     const requestData = await DB.fetchAllRequests(binId);
     const requests = mapToRequests(requestData);
     const workingReq = requests[0].payload;
+    
     const jsonData = JSON.parse(workingReq);
-
     list.innerHTML = manager.templates.all_requests({request: requests});
     if (requests.length > 0) {
       const bodyContainer = document.querySelector('.bodyContainer');

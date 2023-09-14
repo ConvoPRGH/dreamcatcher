@@ -38,7 +38,9 @@
                 <h2>Details for <span id="bin-header">[request]</span></h2>
               </span>
               </div>
-              <div id="single-request"></div>
+              <div id="single-request-details">No requests yet :(</div>
+              <div id="catcher-table-footer"></div>
+
           </div>
             
         </span>
@@ -62,7 +64,7 @@
       </dl>
      </script>
      <script type="text/x-handlebars" id="one_request">
-        <div class="request" data-request_id="{{request.mongo_id}}">
+        <div class="single-request" data-request_id="{{request.mongo_id}}">
           <div class="single-request-details">
             <h3>Method</h3>
             <div>{{request.http_method}}</div>

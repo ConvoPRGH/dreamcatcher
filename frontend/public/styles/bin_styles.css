@@ -1,7 +1,11 @@
+main {
+  padding-bottom: 0;
+}
 #main-content {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  column-gap: 20px;
+  height: 85vh;
 }
 
 #nav-buttons {
@@ -10,6 +14,8 @@
 
 #back-button {
   margin-right: 20px;
+  cursor: pointer;
+  font-size: 1.2em;
 }
 
 #copy-button {
@@ -21,13 +27,18 @@
   box-shadow: -1px 1px 0px 2px rgba(195, 195, 195, 0.2);
 }
 
+#copy-button:hover {
+  cursor: pointer;
+  background-color: rgb(23, 87, 151);
+}
+
 #request-bin {
   min-width: 40%;
   max-width: 40%;
 }
 
 #single-request-container {
-
+  min-width: 50%;
 }
 
 #single-request {
@@ -51,7 +62,6 @@
 }
 
 #request-list {
-  padding: 10px;
   background-color: rgb(15, 41, 67);
   color: white;
   font-size: 0.8em;
@@ -59,6 +69,9 @@
 
 .request-details {
   display: flex;
+  padding: 10px 5px 10px 0;
+  height: 30px;
+  overflow: hidden;
 }
 
 .request {
@@ -80,4 +93,9 @@
   flex-shrink: 3;
   height: 40px;
   padding: 10px;
+}
+
+.single-request {
+  padding: 5px;
+  border-bottom: 1px solid rgb(18, 68, 118);
 }

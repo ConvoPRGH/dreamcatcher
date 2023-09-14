@@ -38,6 +38,7 @@ binsRouter.get('/:bin_path/requests', async (req, res) => {
   }
 });
 
+// delete a request
 binsRouter.delete('/:bin_path/requests/:request_id', async (req, res) => {
   const request_id = req.params.request_id;
   try {
@@ -48,7 +49,9 @@ binsRouter.delete('/:bin_path/requests/:request_id', async (req, res) => {
   }
 });
 
+
 binsRouter.get('/:bin_path', async (req, res) => {
+  
   const binPath = req.params.bin_path;
   try {
     const data = await getOneBin(binPath);
@@ -58,13 +61,14 @@ binsRouter.get('/:bin_path', async (req, res) => {
   }
 });
 
+// delete a bin
 binsRouter.delete('/:bin_path', async (req, res) => {
   const binPath = req.params.bin_path;
   try {
     const data = await deleteBin(binPath);
     res.status(200).json({deleted: 'OK'});
   } catch(e) {
-    console.log('Error returning SQL', e.message)
+    console.log('Error returning SQL', e.message);
   }
 });
 
@@ -73,12 +77,12 @@ binsRouter.post('/', async (req, res) => {
   console.log(req)
   try {
     console.log(req.body)
-    const data = await createNewBin(name)
+    const data = await createNewBin(name);
     res.status(201).json(data.rows);
   } catch(e) {
-    console.log('Error creating new bin', e.message)
+    console.log('Error creating new bin', e.message);
   }
-})
+});
 
 
-module.exports = binsRouter
+module.exports = binsRouter;

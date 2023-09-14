@@ -8,6 +8,13 @@ export default class Events {
     document.querySelector('#modal a.close').addEventListener('click', this.toggleModal);
   }
 
+  createBinPageEvents(requests, requestBox, manager) {
+    this.requests = requests;
+    this.requestBox = requestBox;
+    this.manager = manager;
+    document.querySelector("#request-list").addEventListener('click', this.handleRequestClicked.bind(this));
+  }
+
   handleBinRoute(e) {
     if (e.target.classList.contains('delete-button')) {
       return;
@@ -25,6 +32,14 @@ export default class Events {
 
   }
   
+  handleRequestClicked(e) {
+    const requestDiv = e.target.closest(".request");
+    const requestId = requestDiv.dataset.request_id;
+    const request = this.requests.filter(r => r.mongo_id === requestId)[0];
+
+    this.requestBox.innerHTML = this.manager.templates.one_request({request: request})
+  }
+
   toggleModal(e) {
     e.preventDefault();
     const modal = document.querySelector('#modal');;

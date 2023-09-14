@@ -1,6 +1,7 @@
 import Request from '../src/classes/Request';
 import TemplateManager from '../src/classes/TemplateManager';
 import DBmanager from '../src/classes/DBmanager';
+import Events from '../src/classes/Events';
 
 const DB = new DBmanager();
 
@@ -17,9 +18,12 @@ document.addEventListener('DOMContentLoaded', async() => {
     const requestBox = document.querySelector('#single-request');
     const requestData = await DB.fetchAllRequests(binId);
     const requests = mapToRequests(requestData);
+
     list.innerHTML = manager.templates.all_requests({request: requests});
     requestBox.innerHTML = manager.templates.one_request({request: requests[0]})
 
+    const events = new Events();
+    events.createBinPageEvents(requests, requestBox, manager);
   } catch (error) {
     console.log(error.messsage);
   }

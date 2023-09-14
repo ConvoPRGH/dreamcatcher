@@ -59,7 +59,9 @@ export default class Events {
     const requestDiv = e.target.closest(".request");
     const requestId = requestDiv.dataset.request_id;
     const request = this.requests.filter(r => r.mongo_id === requestId)[0];
-    this.requestBox.innerHTML = this.manager.templates.one_request({request: request})
+    const details = `${request.http_method} request from ${request.http_path} at ${request.received_at}`
+    document.querySelector('#request-name').textContent = 'Request details for:'
+    document.querySelector('#request-details-header').textContent = details;
   }
 
   toggleModal(e) {

@@ -19,6 +19,8 @@ export default class Events {
     this.requestBox = requestBox;
     this.manager = manager;
     document.querySelector("#request-list").addEventListener('click', this.handleRequestClicked.bind(this));
+    document.querySelector('#back-button').addEventListener('click', this.handleClickBack.bind(this));
+    document.querySelector('#copy-button').addEventListener('click', this.handleCopyClick.bind(this));
   }
 
   handleBinRoute(e) {
@@ -84,5 +86,34 @@ export default class Events {
       await this.DB.createNewBin(binName);
       location.reload();
     }
+  }
+
+  handleClickBack(e) {
+    const path = this.#convertToCurrentRelativePath(window.location.href);
+    window.location.href = path;
+  }
+
+  async handleCopyClick(e) {
+    try {
+      const path = this.#convertToCurrentRelativePath(window.location.href);
+      const bin_id = this.#getBinPath(window.location.href);
+      const url = `${path}/api/${bin_id}/`;
+      await navigator.clipboard.writeText(url);
+      console.log('Text copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  }
+
+  #convertToCurrentRelativePath(href) {
+    let currentPath = href.split('/');
+    currentPath = currentPath.slice(0, currentPath.length - 1);
+    return currentPath.join('/');
+  }
+
+  #getBinPath(href) {
+    let currentPath = href.split('/');
+    currentPath = currentPath.slice(currentPath.length - 1);
+    return currentPath[0];
   }
 }

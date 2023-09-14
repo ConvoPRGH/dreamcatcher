@@ -66,7 +66,7 @@ binsRouter.delete('/:bin_path', async (req, res) => {
   const binPath = req.params.bin_path;
   try {
     const data = await deleteBin(binPath);
-    res.status(200).json({deleted: 'OK'});
+    res.status(200).json({deleted: true});
   } catch(e) {
     console.log('Error returning SQL', e.message);
   }

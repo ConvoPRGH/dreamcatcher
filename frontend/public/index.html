@@ -5,10 +5,10 @@
     <script src="javascripts/handlebars-v4.0.5.js"></script>
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images//favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images//favicon-16x16.png">
-    <link rel="manifest" href="./images//site.webmanifest">
-    <link rel="mask-icon" href="./images//safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./images/site.webmanifest">
+    <link rel="mask-icon" href="./images/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
   </head>
@@ -19,23 +19,22 @@
         <img id="logo" src="./images/dreamcatcherlogo.png">
         <div class="about">
           <p>about us</p>
-          <p>dashboard</p>
         </div>
       </aside>
       <main>
 
         <div id="catcher-table-head">
           <span>
-            <h2>Catchers</h2>
+            <h2 id="table-title">Catchers</h2>
           </span>
           <span>
               <button type="button" id="create-catcher-btn" class="blue-button">Create Catcher</button>
           </span>
         </div>
         <div id="bin-list-header">
-          <span>name</span>
-          <span>last request</span>
-          <span>number of requests</span>
+          <span id="name-head">name</span>
+          <span id="req-head">last request</span>
+          <span id="num-head">number of requests</span>
         </div>
         <section id="bin-list"></section>
       </main>
@@ -54,21 +53,19 @@
     
     <script type="module" src="./javascripts/index.js"></script>
     <script type="text/x-handlebars" id="all_bins">
-      <dl>
         {{#each bin}}
         <div class="catcher" data-bin_path="{{this.bin_path}}">
-          <div class="catcher-details flex-row">
+          <div class="catcher-details">
             <span class="bin-info">
               <div class="catcher-name">{{this.name}}</div>
               <div class="catcher-path">{{this.bin_path}}</div>
             </span>
             <span class="catcher-data">{{this.last_accessed}} day(s) ago</span>
             <span class="catcher-data">{{this.requests}} requests</span>
-            <span class="delete-button">DELETE</span>
+            <span class="delete-button"><img src="./images/delete.png" style="width: 24px; height: 24px;"></span>
           </div>
         </div> 
         {{/each}}
-      </dl>
      </script>
   </body>
 </html>

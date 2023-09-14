@@ -71,6 +71,10 @@ main {
   border-bottom: 1px solid rgb(24, 97, 170);
 }
 
+#table-title {
+  margin-top: 3px;
+}
+
 .blue-button {
   padding: 8px;
   border: none;
@@ -89,17 +93,30 @@ main {
   background-color: rgb(18, 68, 118);
   color: white;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+
+#name-head {
+  padding-left: 50px;
+  width: 150px;
+}
+
+#req-head {
+  width: 300px;
+  text-align: center;
+}
+
+#num-head {
+  padding-right: 15%;
 }
 
 #bin-list {
-  padding: 10px;
   background-color: rgb(15, 41, 67);
   color: white;
 }
 
 .catcher {
-  padding: 5px;
+  padding: 10px;
   border-bottom: 1px solid rgb(18, 68, 118);
   
 }
@@ -110,7 +127,14 @@ main {
 }
 
 .catcher-details {
+  height: 50px;
+  margin-top: 10px;
   justify-content: space-between;
+  display: flex;
+}
+
+.bin-info {
+  width: 300px;
 }
 
 .catcher-data {
@@ -126,6 +150,11 @@ main {
 
 .catcher-path {
   color: rgb(189, 189, 189);
+  font-size: 0.8em;
+}
+
+.delete-button {
+  margin-top: 5px;
 }
 
 #modal-layer {

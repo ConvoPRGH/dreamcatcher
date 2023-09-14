@@ -2,7 +2,8 @@ export default class DBmanager {
 
   async fetchAllBins() {
     try {
-      const url = `${window.location.href}api/bins`;
+      const path = this.#convertToCurrentRelativePath(window.location.href)
+      const url = `${path}/api/bins`;
       const response = await fetch(url)
       let data = await response.json()
       data.forEach(entry => entry.created_at = this.#convertPSQLTimestamp(entry.created_at));
@@ -15,7 +16,8 @@ export default class DBmanager {
   async createNewBin(name) {
     const binName = { name }
     try {
-      const url = `${window.location.href}api/bins`;
+      const path = this.#convertToCurrentRelativePath(window.location.href)
+      const url = `${path}/api/bins`;
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -31,7 +33,8 @@ export default class DBmanager {
 
   async fetchOneBin(bin_id) {
     try {
-      const url = `${window.location.href}api/bins/${bin_id}`;
+      const path = this.#convertToCurrentRelativePath(window.location.href)
+      const url = `${path}/api/bins/${bin_id}`;
       const response = await fetch(url)
       let data = await response.json()
       data.forEach(entry => entry.created_at = this.#convertPSQLTimestamp(entry.created_at));
@@ -43,7 +46,8 @@ export default class DBmanager {
 
   async fetchAllRequests(bin_id) {
     try {
-      const url = `${window.location.href}api/bins/${bin_id}/requests`;
+      const path = this.#convertToCurrentRelativePath(window.location.href)
+      const url = `${path}/api/bins/${bin_id}/requests`;
       const response = await fetch(url)
       let data = await response.json()
       data.forEach(entry => entry.created_at = this.#convertPSQLTimestamp(entry.received_at));
@@ -57,5 +61,11 @@ export default class DBmanager {
     let [date, time] = timestamp.split('T');
     time = time.slice(0, 8);
     return date + ' ' + time;
+  }
+
+  #convertToCurrentRelativePath(href) {
+    let currentPath = href.split('/')
+    currentPath = currentPath.slice(0, currentPath.length - 1)
+    return currentPath.join('/');
   }
 }

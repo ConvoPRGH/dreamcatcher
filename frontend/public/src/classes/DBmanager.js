@@ -2,7 +2,8 @@ export default class DBmanager {
 
   async fetchAllBins() {
     try {
-      const response = await fetch('http://localhost:3000/api/bins')
+      const url = `${window.location.href}api/bins`;
+      const response = await fetch(url)
       let data = await response.json()
       data.forEach(entry => entry.created_at = this.#convertPSQLTimestamp(entry.created_at));
       return data
@@ -14,9 +15,7 @@ export default class DBmanager {
   async createNewBin(name) {
     const binName = { name }
     try {
-      const url = 'http://localhost:3000/api/bins'
-      console.log(binName);
-      console.log(JSON.stringify(binName));
+      const url = `${window.location.href}api/bins`;
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -32,7 +31,8 @@ export default class DBmanager {
 
   async fetchOneBin(bin_id) {
     try {
-      const response = await fetch(`http://localhost:3000/api/bins/${bin_id}`)
+      const url = `${window.location.href}api/bins/${bin_id}`;
+      const response = await fetch(url)
       let data = await response.json()
       data.forEach(entry => entry.created_at = this.#convertPSQLTimestamp(entry.created_at));
       return data
@@ -43,7 +43,8 @@ export default class DBmanager {
 
   async fetchAllRequests(bin_id) {
     try {
-      const response = await fetch(`http://localhost:3000/api/bins/${bin_id}/requests`)
+      const url = `${window.location.href}api/bins/${bin_id}/requests`;
+      const response = await fetch(url)
       let data = await response.json()
       data.forEach(entry => entry.created_at = this.#convertPSQLTimestamp(entry.received_at));
       return data

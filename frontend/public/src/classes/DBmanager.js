@@ -52,6 +52,11 @@ export default class DBmanager {
     }
   };
 
+  async deleteBin(bin_id) {
+    let requests = await this.fetchAllRequests(bin_id);
+    console.log('deleteBin', requests);
+  }
+
   #convertPSQLTimestamp(timestamp) {
     let [date, time] = timestamp.split('T');
     time = time.slice(0, 8);

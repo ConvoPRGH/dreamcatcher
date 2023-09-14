@@ -22,7 +22,8 @@ export default class Events {
   }
 
   handleBinRoute(e) {
-    if (e.target.closest('span').classList.contains('delete-button')) {
+    const parent = e.target.closest('span')
+    if (parent && parent.classList.contains('delete-button')) {
       return;
     }
     const catcher = e.target.closest(".catcher");
@@ -32,13 +33,16 @@ export default class Events {
   }
 
   handleBinDelete(e) {
-    if (!e.target.closest('span').classList.contains('delete-button')) {
+    const parent = e.target.closest('span')
+    if (!parent) {
+      return;
+    }
+    if (!parent.classList.contains('delete-button')) {
       return;
     }
     const catcher = e.target.closest(".catcher");
     const bin_path = catcher.dataset.bin_path;
     const deleteConfirmed = confirm('This will delete the Catcher and all requests. Do you want to continue?');
-    console.log('handleBinDelete2', bin_path, deleteConfirmed, this);
     if (!deleteConfirmed) {
       return;
     }

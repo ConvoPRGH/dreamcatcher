@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async() => {
     list.innerHTML = manager.templates.all_requests({request: requests});
     requestBox.innerHTML = manager.templates.one_request({request: requests[0]})
 
-    const events = new Events();
+    const events = new Events(DB);
     events.createBinPageEvents(requests, requestBox, manager);
   } catch (error) {
     console.log(error.messsage);

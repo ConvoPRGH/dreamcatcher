@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async() => {
     const listData = await DB.fetchAllBins();
     const bins = mapToBins(listData)
     list.innerHTML = manager.templates.all_bins({bin: bins});
-    const events = new Events();
+    const events = new Events(DB);
     events.createMainPageEvents();
   } catch (error) {
     console.log(error.messsage);

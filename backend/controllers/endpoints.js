@@ -11,8 +11,8 @@ module.exports = (wss) => {
       res.status(400).send('Bad Request: Bin Path Not Found');
     }
   
-    const path = useragent ? useragent : req.get('host')
-    const method = req.method;
+    const path = req.get('User-Agent') ? req.get('User-Agent') : req.get('host')
+    const method = req.method; 
     const payload = {headers: req.headers, body: req.body};
     let mongoUUID, mongoPayload;
   

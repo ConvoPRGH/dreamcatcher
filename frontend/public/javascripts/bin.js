@@ -7,7 +7,8 @@ const DB = new DBmanager();
 
 document.addEventListener('DOMContentLoaded', async() => {
   try {
-    const binId = window.location.pathname.slice(1);
+    const paths = window.location.pathname.split('/');
+    const binId = paths[paths.length - 1]
     const manager = new TemplateManager();
 
     const binHeader = document.querySelector('#bin-header');

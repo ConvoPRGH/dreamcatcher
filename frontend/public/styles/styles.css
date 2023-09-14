@@ -1,7 +1,10 @@
 @import url("reset.css");
 
+html {
+  font-family: 'Titillium Web', sans-serif;
+}
+
 #site-container {
-  font-family: Verdana;
   box-sizing: border-box;
   max-width: 100%;
   height: 100%;

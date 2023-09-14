@@ -1,3 +1,7 @@
+html {
+  font-family: 'Titillium Web', sans-serif;
+}
+
 main {
   padding-bottom: 0;
 }
@@ -98,4 +102,40 @@ main {
 .single-request {
   padding: 5px;
   border-bottom: 1px solid rgb(18, 68, 118);
+}
+
+/* Style for headers */
+.headers {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+/* Style for header names */
+.header-name {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* Style for collapsible icon */
+.toggle-icon {
+  cursor: pointer;
+}
+
+/* Hide sub-headers by default */
+.sub-headers {
+  display: none;
+}
+
+.nested-items {
+  display: none;
+}
+
+/* Show nested items when the 'hidden' class is not present */
+.nested-items:not(.hidden) {
+  display: block;
+}
+
+.hidden {
+  display: none;
 }

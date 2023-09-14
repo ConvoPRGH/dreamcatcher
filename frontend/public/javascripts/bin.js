@@ -37,15 +37,13 @@ const mapToRequests = (requests) => {
   return requests.map(request => new Request(request))
 };
 
-const connectToWSS = (binId) => {
-  const socket = new WebSocket('ws://localhost:3005');
+const connectToWSS = (binPath) => {
+  const socket = new WebSocket(`ws://localhost:3005?binPath=${binPath}`);
 
   socket.onmessage = (event) => {
     const requestData = JSON.parse(event.data);
-    if (requestData.bin_path === binId) {
-      // Render the new request
-      console.log("Received Request:", requestData);
-    }
+    // Render the new request
+    console.log("Received Request:", requestData);
   }
 
   socket.onerror = (error) => {

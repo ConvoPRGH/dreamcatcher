@@ -40,7 +40,10 @@ module.exports = (wss) => {
   const sendNewRequestToClients = (wss, requestRow) => {
     if (wss.clients) {
       wss.clients.forEach((client) => {
-        client.send(JSON.stringify(requestRow));
+        // Only send to the appropriate clients
+        if (client.binPath == requestRow.bin_path) {
+          client.send(JSON.stringify(requestRow));
+        }
       });
     }
   }

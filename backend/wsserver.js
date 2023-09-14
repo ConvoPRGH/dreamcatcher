@@ -1,5 +1,6 @@
 const WebSocket = require('ws');
 const http = require('http');
+const url = require('url');
 const { v4: uuidv4 } = require('uuid');
 
 class WSServer {
@@ -21,9 +22,12 @@ class WSServer {
     });
   }
   
-  handleConnection(ws) {
-    const clientId = uuidv4();
-    console.log(`Client connected: ${clientId}`);
+  handleConnection(ws, req) {
+    const query = url.parse(req.url, true).query;
+    const binPath = query.binPath;
+
+    // Store bin path of client
+    ws.binPath = binPath;
     this.clients.add(ws)
 
     ws.on('message', this.handleMessageReceivedFromClient);

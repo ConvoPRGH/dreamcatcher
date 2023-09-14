@@ -99,7 +99,6 @@ export default class Events {
       const bin_id = this.#getBinPath(window.location.href);
       const url = `${path}/api/${bin_id}/`;
       await navigator.clipboard.writeText(url);
-      console.log('Text copied to clipboard');
     } catch (err) {
       console.error('Failed to copy text: ', err);
     }

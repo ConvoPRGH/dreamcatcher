@@ -16,13 +16,14 @@ document.addEventListener('DOMContentLoaded', async() => {
     binHeader.innerHTML = binData[0].name;
 
     const list = document.querySelector('#request-list');
-    const requestBox = document.querySelector('#single-request');
+    const requestBox = document.querySelector('#single-request-details');
     const requestData = await DB.fetchAllRequests(binId);
     const requests = mapToRequests(requestData);
 
     list.innerHTML = manager.templates.all_requests({request: requests});
-    requestBox.innerHTML = manager.templates.one_request({request: requests[0]})
-    console.log(requests);
+    if (requests.length > 0) {
+      requestBox.innerHTML = manager.templates.one_request({request: requests[0]})
+    }
      // connect to backend WSS
     connectToWSS(binId, requests, list, manager);
 

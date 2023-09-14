@@ -10,7 +10,9 @@ export default class Bin {
   }
 
   #lastAccessedTime(created_at) {
-    const difference = Math.abs(new Date() - new Date(created_at));
-    return new Date(difference).getDate();
+    const now = new Date();
+    const difference = Math.abs(now - created_at)
+    const days = Math.floor(difference / (24*60*60*1000));
+    return days
   }
 }

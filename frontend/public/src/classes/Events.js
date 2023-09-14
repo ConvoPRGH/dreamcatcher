@@ -48,7 +48,11 @@ export default class Events {
     if (!deleteConfirmed) {
       return;
     }
-    this.DB.deleteBin(bin_path); //db undefined
+      let binDeleted = this.DB.deleteBin(bin_path); 
+      if (binDeleted) {
+        catcher.remove();
+      }
+    
     // TODO confirm delete, delete from DB, check if deleted, display success message, remove from dom
 
   }

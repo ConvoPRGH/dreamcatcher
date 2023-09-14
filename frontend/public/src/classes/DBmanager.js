@@ -68,6 +68,12 @@ export default class DBmanager {
       const path = this.#convertToCurrentRelativePath(window.location.href)
       const url = `${path}/api/bins/${bin_id}`;
       const response = await fetch(url, {method: "DELETE"}); // binsRouter.delete('/:bin_path', async (req, res) => {
+      let data = await response.json();
+      if (data.deleted) {
+        return true;
+      } else {
+        return false;
+      }
       
     } catch (error) {
       console.log("dbmanager:: deleteBin", error.message);

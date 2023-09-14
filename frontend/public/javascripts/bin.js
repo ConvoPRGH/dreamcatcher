@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', async() => {
     list.innerHTML = manager.templates.all_requests({request: requests});
     requestBox.innerHTML = manager.templates.one_request({request: requests[0]})
 
+     // connect to backend WSS
+    connectToWSS();
+
     const events = new Events(DB);
     events.createBinPageEvents(requests, requestBox, manager);
   } catch (error) {
@@ -33,3 +36,16 @@ document.addEventListener('DOMContentLoaded', async() => {
 const mapToRequests = (requests) => {
   return requests.map(request => new Request(request))
 };
+
+const connectToWSS = () => {
+  const socket = new WebSocket('ws://localhost:3001');
+
+  socket.onmessage = (event) => {
+    const requestData = JSON.parse(event.data);
+    console.log("Received Request:", requestData);
+  }
+
+  socket.onerror = (error) => {
+    console.log(`WebSocket Error: ${error.message}`);
+  }
+}

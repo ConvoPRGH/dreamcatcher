@@ -8,8 +8,9 @@ const insertPayloadToMongo = async (payload) => {
   const newPayload = new Payload({payload: payload, request_id: uuid});
 
   try {
-    await newPayload.save();
-    return uuid;
+    const mongoPayload = await newPayload.save();
+    mongoPayload.uuid = uuid;
+    return mongoPayload;
   } catch (error) {
     console.log('Error inserting Payload into Mongo', e);
   }
@@ -17,7 +18,8 @@ const insertPayloadToMongo = async (payload) => {
 
 const insertRequestToPSQL = async (binPath, mongoUUID, method, path) => {
   const text = `INSERT INTO requests (bin_path, mongo_id, received_at, http_method, http_path)
-                VALUES ($1, $2, now(), $3, $4)`
+                VALUES ($1, $2, now(), $3, $4)
+                RETURNING *`
   try {
     const response = await psql.query(text, [binPath, mongoUUID, method, path]);
     return response;

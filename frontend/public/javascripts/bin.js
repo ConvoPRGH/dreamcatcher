@@ -23,10 +23,9 @@ document.addEventListener('DOMContentLoaded', async() => {
     
     const jsonData = JSON.parse(workingReq);
     list.innerHTML = manager.templates.all_requests({request: requests});
+    const bodyContainer = document.querySelector('.bodyContainer');
+    const headersContainer = document.querySelector('.headersContainer');
     if (requests.length > 0) {
-      const bodyContainer = document.querySelector('.bodyContainer');
-      const headersContainer = document.querySelector('.headersContainer');
-      
       recursivePrint(jsonData.body, bodyContainer, 0);
       recursivePrint(jsonData.headers, headersContainer, 0)
     }
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async() => {
     connectToWSS(binId, requests, list, manager);
 
     const events = new Events(DB);
-    events.createBinPageEvents(requests, requestBox, manager);
+    events.createBinPageEvents(requests, requestBox, manager, recursivePrint, bodyContainer, headersContainer);
 
     
     document.querySelector('.body-toggle-icon').addEventListener('click', (e) => {
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', async() => {
       e.target.parentElement.querySelector('ul').classList.toggle('hidden');
       e.target.textContent = e.target.textContent === '▶' ? '▼' : '▶';
     });
-    console.log(jsonData.body);
+
   } catch (error) {
     console.log(error.messsage);
     console.log(error);

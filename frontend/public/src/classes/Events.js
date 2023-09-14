@@ -14,10 +14,13 @@ export default class Events {
     document.querySelector('#modal a.close').addEventListener('click', this.toggleModal);
   }
 
-  createBinPageEvents(requests, requestBox, manager) {
+  createBinPageEvents(requests, requestBox, manager, recursivePrint, bodyContainer, headersContainer) {
     this.requests = requests;
     this.requestBox = requestBox;
     this.manager = manager;
+    this.recursivePrint = recursivePrint;
+    this.bodyContainer = bodyContainer;
+    this.headersContainer = headersContainer;
     document.querySelector("#request-list").addEventListener('click', this.handleRequestClicked.bind(this));
     document.querySelector('#back-button').addEventListener('click', this.handleClickBack.bind(this));
     document.querySelector('#copy-button').addEventListener('click', this.handleCopyClick.bind(this));
@@ -62,6 +65,12 @@ export default class Events {
     const details = `${request.http_method} request from ${request.http_path} at ${request.received_at}`
     document.querySelector('#request-name').textContent = 'Request details for:'
     document.querySelector('#request-details-header').textContent = details;
+
+    const jsonData = JSON.parse(request.payload);
+    this.bodyContainer.innerHTML = ""
+    this.headersContainer.innerHTML = ""
+    this.recursivePrint(jsonData.body, this.bodyContainer, 0);
+    this.recursivePrint(jsonData.headers, this.headersContainer, 0)
   }
 
   toggleModal(e) {

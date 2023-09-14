@@ -58,8 +58,20 @@ export default class DBmanager {
   };
 
   async deleteBin(bin_id) {
-    let requests = await this.fetchAllRequests(bin_id);
-    console.log('deleteBin', requests);
+    // let requests = await this.fetchAllRequests(bin_id);
+    console.log('DBManager::deleteBin');
+    try {
+      // nice to have: delete requests from mongo
+        // let requests = await this.fetchAllRequests(bin_id);
+        // delete each request
+
+      const path = this.#convertToCurrentRelativePath(window.location.href)
+      const url = `${path}/api/bins/${bin_id}`;
+      const response = await fetch(url, {method: "DELETE"}); // binsRouter.delete('/:bin_path', async (req, res) => {
+      
+    } catch (error) {
+      console.log("dbmanager:: deleteBin", error.message);
+    }
   }
 
   #convertPSQLTimestamp(timestamp) {

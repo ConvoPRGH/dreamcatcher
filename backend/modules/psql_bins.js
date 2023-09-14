@@ -59,7 +59,7 @@ const getAllPayloads = async (mongoIds) => {
   }
 }
 
-const deleteBin = async (bin_id) => {
+const deleteBin = async (bin_path) => {
   const text = `DELETE FROM bins
                 WHERE bin_path = $1`;
   try {

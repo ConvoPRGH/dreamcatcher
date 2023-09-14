@@ -38,7 +38,6 @@ export default class Events {
     const catcher = e.target.closest(".catcher");
     const bin_path = catcher.dataset.bin_path;
     const deleteConfirmed = confirm('This will delete the Catcher and all requests. Do you want to continue?');
-    console.log('handleBinDelete2', bin_path, deleteConfirmed, this);
     if (!deleteConfirmed) {
       return;
     }

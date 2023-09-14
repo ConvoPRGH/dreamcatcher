@@ -71,7 +71,7 @@ main {
   border-bottom: 1px solid rgb(24, 97, 170);
 }
 
-#create-catcher-btn {
+.blue-button {
   padding: 8px;
   border: none;
   background-color: rgb(15, 41, 67);
@@ -140,20 +140,22 @@ main {
 }
 
 #modal {
+  background-color: rgb(27, 92, 157);
+  width: 400px;
+  height: 100px;
+  border-radius: 10px;
+  color: white;
   position: absolute;
   display: none;
   left: 50%;
   z-index: 3;
-  width: 660px;
-  padding: 125px 70px 90px 85px;
-  margin: 0 0 0 -415px;
+  margin: 100px 0 0 -100px;
+  padding: 30px;
   text-align: left;
-  background: #ffffff;
   -webkit-transition: visibility 0.3s, opacity 0.3s;
     -moz-transition: visibility 0.3s, opacity 0.3s;
       transition: visibility 0.3s, opacity 0.3s;
 }
-
 
 #modal a.close {
   position: absolute;
@@ -166,6 +168,10 @@ main {
   text-indent: -8685px;
   overflow: hidden;
   background: transparent url("../images/icon_close.png") 0 0 no-repeat;
+}
+
+#new-catcher > h2 {
+  margin-bottom: 10px;
 }
 
 #logo {

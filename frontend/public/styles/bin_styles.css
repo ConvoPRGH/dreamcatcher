@@ -38,8 +38,8 @@ main {
 
 #text-copy-confirm {
   position: absolute;
-  top: 15px;
-  left: 550px;
+  top: 10px;
+  left: 500px;
   background-color: rgba(255, 255, 116, 0.821);
   color: black;
   font-size: 0.8em;
@@ -79,6 +79,7 @@ main {
   background-color: rgb(15, 41, 67);
   color: white;
   font-size: 0.8em;
+  max-height: 70%;
 }
 
 .request-details {

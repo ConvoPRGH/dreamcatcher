@@ -16,8 +16,8 @@ class WSServer {
 
     this.wss.on('connection', this.handleConnection);
 
-    this.server.listen(3001, () => {
-      console.log('Server is running on port 3001');
+    this.server.listen(3005, () => {
+      console.log('Server is running on port 3005');
     });
   }
   

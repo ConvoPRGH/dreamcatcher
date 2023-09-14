@@ -3,6 +3,9 @@
   <head>
     <title>Dreamcatcher</title>
     <script src="javascripts/handlebars-v4.0.5.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
     <link rel="stylesheet" type="text/css" href="./styles/bin_styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
@@ -48,15 +51,15 @@
                 <h2>Details for <span id="bin-header">[request]</span></h2>
               </span>
               </div>
-              <div id="single-request-details">No requests yet :(</div>
+              <div id="single-request-details">
+                <div>Body<span class="body-toggle-icon toggle-icon">▶</span><ul class="bodyContainer hidden"></ul></div>
+                <div>Headers<span class="headers-toggle-icon toggle-icon">▶</span><ul class="headersContainer hidden"></ul></div>
+              </div>
               <div id="catcher-table-footer"></div>
-
           </div>
-            
         </span>
       </main>
     </div>
-    
     
     <script type="module" src="./javascripts/bin.js"></script>
     <script type="text/x-handlebars" id="all_requests">
@@ -87,3 +90,4 @@
      </script>
   </body>
 </html>
+

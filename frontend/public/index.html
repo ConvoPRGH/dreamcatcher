@@ -3,6 +3,9 @@
   <head>
     <title>Dreamcatcher</title>
     <script src="javascripts/handlebars-v4.0.5.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
@@ -53,20 +56,20 @@
     
     <script type="module" src="./javascripts/index.js"></script>
     <script type="text/x-handlebars" id="all_bins">
-        {{#each bin}}
-        <div class="catcher" data-bin_path="{{this.bin_path}}">
-          <div class="catcher-details">
-            <span class="bin-info">
-              <div class="catcher-name">{{this.name}}</div>
-              <div class="catcher-path">{{this.bin_path}}</div>
-            </span>
-            <span class="catcher-data">{{this.last_accessed}} day(s) ago</span>
-            <span class="catcher-data">{{this.requests}} requests</span>
-            <span class="delete-button"><img src="./images/delete.png" style="width: 24px; height: 24px;"></span>
-          </div>
-        </div> 
-        {{/each}}
-     </script>
+      {{#each bin}}
+      <div class="catcher" data-bin_path="{{this.bin_path}}">
+        <div class="catcher-details">
+          <span class="bin-info">
+            <div class="catcher-name">{{this.name}}</div>
+            <div class="catcher-path">{{this.bin_path}}</div>
+          </span>
+          <span class="catcher-data">{{this.last_accessed}} day(s) ago</span>
+          <span class="catcher-data">{{this.requests}} requests</span>
+          <span class="delete-button"><img src="./images/delete.png" style="width: 24px; height: 24px;"></span>
+        </div>
+      </div> 
+      {{/each}}
+    </script>
   </body>
 </html>
 

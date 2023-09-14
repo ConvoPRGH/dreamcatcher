@@ -7,6 +7,7 @@ export default class Events {
   createMainPageEvents() {
     document.querySelector("#new-catcher").addEventListener('submit', this.handleNewBinSubmit.bind(this));
     document.querySelector("#bin-list").addEventListener('click', this.handleBinRoute);
+    document.querySelector("#bin-list").addEventListener('click', this.handleBinDelete.bind(this));
     document.querySelector('#create-catcher-btn').addEventListener("click", this.toggleModal);
     document.querySelector('#create-catcher-btn').addEventListener("click", this.focusText);
     document.querySelector('#modal-layer').addEventListener('click', this.toggleModal);
@@ -34,6 +35,14 @@ export default class Events {
     if (!e.target.classList.contains('delete-button')) {
       return;
     }
+    const catcher = e.target.closest(".catcher");
+    const bin_path = catcher.dataset.bin_path;
+    const deleteConfirmed = confirm('This will delete the Catcher and all requests. Do you want to continue?');
+    console.log('handleBinDelete2', bin_path, deleteConfirmed, this);
+    if (!deleteConfirmed) {
+      return;
+    }
+    this.DB.deleteBin(bin_path); //db undefined
     // TODO confirm delete, delete from DB, check if deleted, display success message, remove from dom
 
   }

@@ -22,12 +22,15 @@
 }
 
 #request-bin {
-  width: 40%;
+  min-width: 40%;
+  max-width: 40%;
+}
+
+#single-request-container {
+
 }
 
 #single-request {
-  margin-left: 20px;
-  min-width: 400px;
 }
 
 #request-table-head {
@@ -51,6 +54,7 @@
   padding: 10px;
   background-color: rgb(15, 41, 67);
   color: white;
+  font-size: 0.8em;
 }
 
 .request-details {

@@ -32,6 +32,19 @@ main {
   background-color: rgb(23, 87, 151);
 }
 
+#text-copy-confirm {
+  position: absolute;
+  top: 15px;
+  left: 550px;
+  background-color: rgba(255, 255, 116, 0.821);
+  color: black;
+  font-size: 0.8em;
+  border-radius: 3px;
+  padding: 5px;
+  width: 100px;
+  opacity: 0;
+}
+
 #request-bin {
   min-width: 40%;
   max-width: 40%;
@@ -39,9 +52,6 @@ main {
 
 #single-request-container {
   min-width: 50%;
-}
-
-#single-request {
 }
 
 #request-table-head {
@@ -98,4 +108,17 @@ main {
 .single-request {
   padding: 5px;
   border-bottom: 1px solid rgb(18, 68, 118);
+}
+
+.fade-out {
+  animation: fade-out 1s 0.5s ease-out forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

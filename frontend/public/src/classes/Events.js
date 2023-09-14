@@ -59,7 +59,6 @@ export default class Events {
     const requestDiv = e.target.closest(".request");
     const requestId = requestDiv.dataset.request_id;
     const request = this.requests.filter(r => r.mongo_id === requestId)[0];
-
     this.requestBox.innerHTML = this.manager.templates.one_request({request: request})
   }
 
@@ -101,6 +100,12 @@ export default class Events {
       const bin_id = this.#getBinPath(window.location.href);
       const url = `${path}/api/${bin_id}/`;
       await navigator.clipboard.writeText(url);
+      const notification = document.querySelector('#text-copy-confirm');
+      notification.style.opacity = 1
+      notification.classList.remove('fade-out')
+      void notification.offsetWidth;
+      notification.classList.add('fade-out');
+      
     } catch (err) {
       console.error('Failed to copy text: ', err);
     }

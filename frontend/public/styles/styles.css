@@ -103,17 +103,15 @@ main {
   background-color: rgb(18, 68, 118);
   color: white;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 #name-head {
-  padding-left: 50px;
-  width: 150px;
+  margin-right: 30%;
 }
 
 #req-head {
-  width: 300px;
-  text-align: center;
+  margin-right: 26%;
 }
 
 #num-head {

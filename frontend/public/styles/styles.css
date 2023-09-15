@@ -158,7 +158,6 @@ main {
   width: 20%;
   height: 40px;
   padding: 10px;
-  text-overflow: clip;
 }
 
 .catcher-name {
@@ -168,13 +167,20 @@ main {
 
 .catcher-path {
   color: rgb(189, 189, 189);
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 .delete-button {
   margin-top: 5px;
 }
 
+.responseive-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  line-height: 1em;
+  max-height: 2em;
+}
 #modal-layer {
   position: fixed;
   display: none;

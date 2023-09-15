@@ -193,7 +193,7 @@ main {
 }
 
 .resizable-div {
-  max-height: 80%;
+  max-height: 70%;
   overflow: auto;
 }
 

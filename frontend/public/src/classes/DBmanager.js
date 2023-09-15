@@ -83,7 +83,7 @@ export default class DBmanager {
   }
 
   #convertPSQLTimestamp(timestamp) {
-    if (timestamp === null) { return; }
+    if (!timestamp) { return; }
     const [date, time] = timestamp.split('T');
     let jsTime = new Date(date + ' ' + time.slice(0, 8));
     jsTime.setHours(jsTime.getHours() - 4);

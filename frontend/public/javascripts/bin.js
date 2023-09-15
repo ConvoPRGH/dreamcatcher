@@ -36,12 +36,10 @@ document.addEventListener('DOMContentLoaded', async() => {
     events.createBinPageEvents(requests, requestBox, manager, recursivePrint, bodyContainer, headersContainer);
     
     document.querySelector('.body-toggle-icon').addEventListener('click', (e) => {
-      console.log(e.target);
       e.target.parentElement.querySelector('ul').classList.toggle('hidden');
       e.target.textContent = e.target.textContent === '▶' ? '▼' : '▶';
     });
     document.querySelector('.headers-toggle-icon').addEventListener('click', (e) => {
-      console.log(e.target);
       e.target.parentElement.querySelector('ul').classList.toggle('hidden');
       e.target.textContent = e.target.textContent === '▶' ? '▼' : '▶';
     });
@@ -97,7 +95,6 @@ function recursivePrint(data, parentElement, level = 0) {
        
         toggleIcon.addEventListener('click', () => {
           const nestedList = listItem.querySelector('ul');
-          console.log(nestedList);
           if (nestedList) {
             nestedList.classList.toggle('hidden');
             toggleIcon.textContent = toggleIcon.textContent === '▶' ? '▼' : '▶';

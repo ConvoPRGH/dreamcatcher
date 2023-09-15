@@ -98,7 +98,7 @@ main {
 #request-list {
   background-color: rgb(15, 41, 67);
   color: white;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   max-height: 70%;
 }
 

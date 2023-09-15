@@ -60,8 +60,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/:bin_path/*', (req, res) => {
-  const binPath = req.params.bin_path;
-  res.redirect(302, `/${binPath}`);
+  const path = req.path.slice(0, -1);
+  res.redirect(302, path);
 });
 
 app.get('/:bin_path', (req, res) => {

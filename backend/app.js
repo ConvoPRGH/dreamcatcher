@@ -59,6 +59,11 @@ app.get('/', (req, res) => {
   res.sendFile(filePath)
 });
 
+app.get('/:bin_path/*', (req, res) => {
+  const binPath = req.params.bin_path;
+  res.redirect(302, `/${binPath}`);
+});
+
 app.get('/:bin_path', (req, res) => {
   const filePath = path.join(__dirname, '../frontend/public/bin.html');
   res.sendFile(filePath)

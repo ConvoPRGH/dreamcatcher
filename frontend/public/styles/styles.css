@@ -174,13 +174,13 @@ main {
   margin-top: 5px;
 }
 
-.responseive-text {
+.responsive-text {
   overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
   line-height: 1em;
   max-height: 2em;
 }
+
 #modal-layer {
   position: fixed;
   display: none;

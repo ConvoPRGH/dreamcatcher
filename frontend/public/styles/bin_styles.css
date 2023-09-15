@@ -124,11 +124,17 @@ main {
   justify-content: space-between;
 }
 
+.request-method {
+  width: 50px;
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 10px;
+}
 .request-data {
   flex-shrink: 3;
   height: 40px;
   padding: 10px;
-  text-overflow: ellipsis;
+  width: 100px;
 }
 
 .single-request {

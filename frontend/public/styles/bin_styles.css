@@ -128,7 +128,7 @@ main {
   width: 55px;
   font-weight: 800;
   font-size: 1rem;
-  padding: 10px;
+  padding: 5px;
 }
 .request-data {
   flex-shrink: 3;

@@ -40,9 +40,9 @@
             </div>
             <div id="request-list-header">
               <div id="header-container">
-                <span class="rl-header-text">method</span>
-                <span class="rl-header-text">path</span>
-                <span class="rl-header-text">received at</span>
+                <span class="rl-header-text responsive-text">method</span>
+                <span class="rl-header-text responsive-text">path</span>
+                <span class="rl-header-text responsive-text">received at</span>
               </div>
             </div>
             <section id="request-list" class="resizable-div"></section>
@@ -71,7 +71,7 @@
         {{#each request}}
         <div class="request" data-request_id="{{this.mongo_id}}">
           <div class="request-details">
-            <span class="request-data responsive-text">{{this.http_method}}</span>
+            <span class="request-method responsive-text">{{this.http_method}}</span>
             <span class="request-data responsive-text">{{this.http_path}}</span>
             <span class="request-data responsive-text">{{this.received_at}}</span>
             <span class="delete-button"><img src="./images/delete.png" style="width: 24px; height: 24px;"></span>

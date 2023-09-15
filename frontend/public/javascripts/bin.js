@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', async() => {
     const requestBox = document.querySelector('#single-request-details');
     const requestData = await DB.fetchAllRequests(binId);
     const requests = mapToRequests(requestData);
-    const workingReq = requests[0].payload;
-    
-    const jsonData = JSON.parse(workingReq);
-    list.innerHTML = manager.templates.all_requests({request: requests});
     const bodyContainer = document.querySelector('.bodyContainer');
     const headersContainer = document.querySelector('.headersContainer');
+
     if (requests.length > 0) {
+      const workingReq = requests[0].payload;
+      const jsonData = JSON.parse(workingReq);
+      list.innerHTML = manager.templates.all_requests({request: requests});
       recursivePrint(jsonData.body, bodyContainer, 0);
       recursivePrint(jsonData.headers, headersContainer, 0)
     }
@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', async() => {
 
     const events = new Events(DB);
     events.createBinPageEvents(requests, requestBox, manager, recursivePrint, bodyContainer, headersContainer);
-
     
     document.querySelector('.body-toggle-icon').addEventListener('click', (e) => {
       console.log(e.target);

@@ -59,7 +59,7 @@ const mapToRequests = (requests) => {
 const connectToWSS = (binPath, requests, list, manager) => {
   const path = convertToCurrentRelativePath(window.location.href)
   console.log("Attempting to connect to WSS on:")
-  console.log(`ws://${path}/websocket?binPath=${binPath}`)
+  console.log(`wss://${path}/websocket?binPath=${binPath}`)
   const socket = new WebSocket(`ws://${path}/websocket?binPath=${binPath}`);
   
   socket.onmessage = (event) => {

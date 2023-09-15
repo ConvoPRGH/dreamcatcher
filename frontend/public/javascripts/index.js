@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async() => {
     const events = new Events(DB);
     events.createMainPageEvents();
   } catch (error) {
-    console.log(error.messsage);
+    console.log(error);
   }
 });
 

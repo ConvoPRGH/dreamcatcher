@@ -24,6 +24,7 @@ export default class Events {
     document.querySelector("#request-list").addEventListener('click', this.handleRequestClicked.bind(this));
     document.querySelector('#back-button').addEventListener('click', this.handleClickBack.bind(this));
     document.querySelector('#copy-button').addEventListener('click', this.handleCopyClick.bind(this));
+    document.querySelector("#request-list").addEventListener('click', this.handleRequestDelete.bind(this));
   }
 
   handleBinRoute(e) {
@@ -52,13 +53,37 @@ export default class Events {
       return;
     }
       let binDeleted = this.DB.deleteBin(bin_path); 
-      console.log(binDeleted)
       if (binDeleted) {
         catcher.remove();
       }
   }
+
+  handleRequestDelete(e) {
+    const parent = e.target.closest('span')
+    if (!parent) {
+      return;
+    }
+    if (!parent.classList.contains('delete-button')) {
+      return;
+    }
+    const request = e.target.closest(".request");
+    const request_id = request.dataset.request_id;
+    const bin_path = this.#getBinPath(window.location.href);
+    const deleteConfirmed = confirm('This will delete the request. Do you want to continue?');
+    if (!deleteConfirmed) {
+      return;
+    }
+      let binDeleted = this.DB.deleteRequest(bin_path, request_id); 
+      if (binDeleted) {
+        request.remove();
+      }
+  }
   
   handleRequestClicked(e) {
+    const parent = e.target.closest('span')
+    if (parent && parent.classList.contains('delete-button')) {
+      return;
+    }
     const requestDiv = e.target.closest(".request");
     const requestId = requestDiv.dataset.request_id;
     const request = this.requests.filter(r => r.mongo_id === requestId)[0];

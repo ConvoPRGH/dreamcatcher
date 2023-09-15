@@ -7,6 +7,7 @@ export default class DBmanager {
       const response = await fetch(url)
       let data = await response.json()
       data.forEach(entry => entry.created_at = this.#convertPSQLTimestamp(entry.created_at));
+      data.forEach(entry => entry.most_recent = this.#convertPSQLTimestamp(entry.most_recent));
       return data
     } catch(e) {
       console.log(e.message);
@@ -38,6 +39,7 @@ export default class DBmanager {
       const response = await fetch(url)
       let data = await response.json()
       data.forEach(entry => entry.created_at = this.#convertPSQLTimestamp(entry.created_at));
+      data.forEach(entry => entry.most_recent = this.#convertPSQLTimestamp(entry.most_recent));
       return data
     } catch(e) {
       console.log(e.message);
@@ -82,6 +84,7 @@ export default class DBmanager {
   }
 
   #convertPSQLTimestamp(timestamp) {
+    if (timestamp === null) { return; }
     const [date, time] = timestamp.split('T');
     let jsTime = new Date(date + ' ' + time.slice(0, 8));
     jsTime.setHours(jsTime.getHours() - 4);

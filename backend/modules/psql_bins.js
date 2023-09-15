@@ -3,10 +3,11 @@ const {v4 : uuidv4} = require('uuid')
 const Payload = require('./payload.js');
 
 const getAllBins = async () => {
-  const text = `SELECT b.*, count(r.id) AS requests 
+  const text = `SELECT b.*, count(r.id) AS requests, MAX(r.received_at) AS most_recent
                 FROM bins b
                 LEFT JOIN requests r ON b.bin_path = r.bin_path
-                GROUP BY b.id`;
+                GROUP BY b.id
+                ORDER BY most_recent DESC`;
                 
   try {
     const response = await psql.query(text);

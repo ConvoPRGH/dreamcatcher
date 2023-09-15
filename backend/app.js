@@ -61,7 +61,8 @@ app.get('/', (req, res) => {
 
 app.get('/:bin_path/*', (req, res) => {
   const path = req.path.slice(0, -1);
-  res.redirect(302, path);
+  const url = config.PROD_URL ? `/${config.PROD_URL}` : "";
+  res.redirect(302, `${url}${path}`);
 });
 
 app.get('/:bin_path', (req, res) => {

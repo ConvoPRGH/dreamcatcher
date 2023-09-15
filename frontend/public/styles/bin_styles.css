@@ -135,6 +135,18 @@ main {
   border-bottom: 1px solid rgb(18, 68, 118);
 }
 
+#single-request-details {
+  padding: 20px 0 20px 15px;
+}
+
+#body-content {
+  margin-bottom: 5px
+}
+
+.pad-list {
+  padding: 2px;
+}
+
 /* Style for headers */
 .headers {
   font-family: Arial, sans-serif;
@@ -150,6 +162,12 @@ main {
 
 /* Style for collapsible icon */
 .toggle-icon {
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.toggle-icon-static {
+  margin-left: 5px;
   cursor: pointer;
 }
 
@@ -175,7 +193,7 @@ main {
 }
 
 .resizable-div {
-  max-height: 70%;
+  max-height: 80%;
   overflow: auto;
 }
 

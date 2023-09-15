@@ -111,7 +111,7 @@ function recursivePrint(data, parentElement, level = 0) {
     } else {
       listItem.textContent = `${emptyChar.repeat(level+1)}${key}: ${value}`;
     }
-
+    listItem.classList.add('pad-list');
     // Append the list item to the parent element
     parentElement.appendChild(listItem);
 

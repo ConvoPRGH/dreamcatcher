@@ -1,3 +1,4 @@
+
 html {
   font-family: 'Titillium Web', sans-serif;
 }
@@ -67,12 +68,21 @@ main {
   border-bottom: 1px solid rgb(24, 97, 170);
 }
 
+.rl-header-text {
+  flex: 1;
+}
+
 .rl-header-text:first-child {
-  margin-right: 15%;
+  /* margin-right: 15%; */
 }
 
 .rl-header-text:nth-child(2) {
-  margin-right: 28%;
+  /* margin-right: 28%; */
+}
+
+#header-container {
+  width: 100%;
+  display: flex;
 }
 
 #request-list-header {

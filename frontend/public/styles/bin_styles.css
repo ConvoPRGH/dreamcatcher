@@ -72,7 +72,8 @@ main {
   background-color: rgb(18, 68, 118);
   color: white;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  gap: 25px;
 }
 
 #request-list {
@@ -108,6 +109,7 @@ main {
   flex-shrink: 3;
   height: 40px;
   padding: 10px;
+  text-overflow: ellipsis;
 }
 
 .single-request {
@@ -155,7 +157,7 @@ main {
 }
 
 .resizable-div {
-  max-height: 90%;
+  max-height: 70%;
   overflow: auto;
 }
 

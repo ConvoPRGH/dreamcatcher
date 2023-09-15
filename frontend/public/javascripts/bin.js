@@ -83,18 +83,19 @@ const convertToCurrentRelativePath = (href) => {
 
 function recursivePrint(data, parentElement, level = 0) {
   const tab = "\t";
+  const emptyChar = "\u00A0".repeat(5);
   if (data === null) {return;}
   for (const [key, value] of Object.entries(data)) {
     // Create a new list item element
     const listItem = document.createElement('li');
     if (typeof value === 'object' && value !== null) {
       if (Array.isArray(value) && value.length === 0) {
-        listItem.textContent = `${"---".repeat(level+1)}${key}: ${value}`;
+        listItem.textContent = `${emptyChar.repeat(level+1)}${key}: ${value}`;
       } else {
         const toggleIcon = document.createElement('span');
         toggleIcon.className = 'toggle-icon';
         toggleIcon.textContent = '▶';
-        
+       
         toggleIcon.addEventListener('click', () => {
           const nestedList = listItem.querySelector('ul');
           console.log(nestedList);
@@ -104,11 +105,11 @@ function recursivePrint(data, parentElement, level = 0) {
           }
         })
 
-        listItem.textContent = `${"---".repeat(level+1)}${key} `;
+        listItem.textContent = `${emptyChar.repeat(level+1)}${key} `;
         listItem.appendChild(toggleIcon)
       }
     } else {
-      listItem.textContent = `${"---".repeat(level+1)}${key}: ${value}`;
+      listItem.textContent = `${emptyChar.repeat(level+1)}${key}: ${value}`;
     }
 
     // Append the list item to the parent element

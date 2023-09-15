@@ -10,6 +10,7 @@ export default class Bin {
   }
 
   #lastAccessedTime(created_at) {
+    console.log(created_at)
     if (!created_at) { return "No requests yet"; }
 
     const now = new Date();

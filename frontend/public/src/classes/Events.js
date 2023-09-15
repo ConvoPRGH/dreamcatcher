@@ -99,6 +99,7 @@ export default class Events {
   }
 
   toggleModal(e) {
+    e.preventDefault()
     const modal = document.querySelector('#modal');;
     const modalLayer = document.querySelector('#modal-layer');
     const showHide = modal.style.display === 'block' ? 'none' : 'block';
